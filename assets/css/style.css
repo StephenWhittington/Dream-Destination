@@ -1,0 +1,13 @@
+body {
+    background-image: url(../images/DreamDestPic.jpg);
+    background-attachment: fixed;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+.main-search {
+    text-align: center;
+    padding-top: 80px;
+}
