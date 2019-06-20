@@ -17,6 +17,11 @@ body {
     width: 100%;
 }
 
+#searchResults {
+    width: 100%;
+}
+
+
 .mapControls {
     margin-top: 10px;
     border: 1px solid transparent;
