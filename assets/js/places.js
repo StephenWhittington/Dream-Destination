@@ -3,16 +3,61 @@ function initMap() {
   var mapDiv = document.getElementById('map');
   var map = new google.maps.Map(mapDiv, {
     zoom: 3,
-    center: new google.maps.LatLng(46.619261, -33.134766)
+    streetViewControl: false,
+    mapTypeControl: false,
+    center: new google.maps.LatLng(46.619261, -33.134766),
+    styles: [{
+        "elementType": "geometry.fill",
+        "stylers": [{
+          "weight": 2
+        }]
+      },
+      {
+        "featureType": "administrative",
+        "elementType": "labels",
+        "stylers": [{
+          "color": "#009fff"
+        }]
+      },
+      {
+        "featureType": "administrative",
+        "elementType": "labels.text.stroke",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      },
+      {
+        "featureType": "poi.government",
+        "elementType": "labels",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      },
+      {
+        "featureType": "poi.medical",
+        "elementType": "labels",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      },
+      {
+        "featureType": "poi.school",
+        "elementType": "labels",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }
+    ]
   });
 
-  var input = document.getElementById('searchMapInput');
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  var mapInput = document.getElementById('searchMapInput');
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(mapInput);
 
-  var autocomplete = new google.maps.places.Autocomplete(input);
+  var autocomplete = new google.maps.places.Autocomplete(mapInput);
   autocomplete.bindTo('bounds', map);
 
   var infowindow = new google.maps.InfoWindow();
+  
   var marker = new google.maps.Marker({
     map: map,
     anchorPoint: new google.maps.Point(0, -29)
@@ -40,6 +85,8 @@ function initMap() {
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
   });
+
+
 
   // Button autocomplete in modal also for users who want to enter a location
   function buttonSearch() {
