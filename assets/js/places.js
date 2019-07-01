@@ -1,11 +1,11 @@
-// initMap function with autocomplete search bar that marks the users destination.
-function initMap() {
-  var mapDiv = document.getElementById('map');
-  var map = new google.maps.Map(mapDiv, {
+// initAutocomplete function with a search bar that marks the users destination and chosen place.
+function initAutocomplete() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 46.619261, lng: -33.134766 },
     zoom: 3,
+    mapTypeId: 'roadmap',
     streetViewControl: false,
     mapTypeControl: false,
-    center: new google.maps.LatLng(46.619261, -33.134766),
     styles: [{
         "elementType": "geometry.fill",
         "stylers": [{
@@ -50,50 +50,65 @@ function initMap() {
     ]
   });
 
-  var mapInput = document.getElementById('searchMapInput');
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(mapInput);
+  var mapPlaceInput = document.getElementById('searchMapInput');
+  var searchBox = new google.maps.places.SearchBox(mapPlaceInput);
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(mapPlaceInput);
 
-  var autocomplete = new google.maps.places.Autocomplete(mapInput);
-  autocomplete.bindTo('bounds', map);
+  map.addListener('bounds_changed', function() {
+    searchBox.setBounds(map.getBounds());
+  });
 
-  var infowindow = new google.maps.InfoWindow();
+  var markers = [];
   
-  var marker = new google.maps.Marker({
-    map: map,
-    anchorPoint: new google.maps.Point(0, -29)
-  });
+  searchBox.addListener('places_changed', function() {
+    var places = searchBox.getPlaces();
 
-  autocomplete.addListener('place_changed', function() {
-    infowindow.close();
-    marker.setVisible(false);
-    var place = autocomplete.getPlace();
-
-    if (place.geometry.viewport) {
-      map.fitBounds(place.geometry.viewport);
+    if (places.length == 0) {
+      return;
     }
-    else {
-      map.setCenter(place.geometry.location);
-      map.setZoom(17);
-    }
-    marker.setIcon(({
-      url: place.icon,
-      size: new google.maps.Size(71, 71),
-      origin: new google.maps.Point(0, 0),
-      anchor: new google.maps.Point(17, 34),
-      scaledSize: new google.maps.Size(35, 35)
-    }));
-    marker.setPosition(place.geometry.location);
-    marker.setVisible(true);
+
+    markers.forEach(function(marker) {
+      marker.setMap(null);
+    });
+    markers = [];
+
+    var bounds = new google.maps.LatLngBounds();
+    places.forEach(function(place) {
+      if (!place.geometry) {
+        console.log("Returned place contains no geometry");
+        return;
+      }
+      var icon = {
+        url: place.icon,
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25)
+      };
+
+   
+      markers.push(new google.maps.Marker({
+        map: map,
+        icon: icon,
+        title: place.name,
+        position: place.geometry.location
+      }));
+
+      if (place.geometry.viewport) {
+        // Only geocodes have viewport.
+        bounds.union(place.geometry.viewport);
+      }
+      else {
+        bounds.extend(place.geometry.location);
+      }
+    });
+    map.fitBounds(bounds);
   });
-
-
-
-  // Button autocomplete in modal also for users who want to enter a location
-  function buttonSearch() {
+  
+   function buttonSearch() {
     var input = document.getElementById('whereTo');
     new google.maps.places.Autocomplete(input);
   }
 
   google.maps.event.addDomListener(window, 'load', buttonSearch);
-
 }
