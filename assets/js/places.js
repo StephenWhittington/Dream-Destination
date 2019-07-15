@@ -59,7 +59,7 @@ function initAutocomplete() {
   });
 
   var markers = [];
-  
+
   searchBox.addListener('places_changed', function() {
     var places = searchBox.getPlaces();
 
@@ -74,10 +74,12 @@ function initAutocomplete() {
 
     var bounds = new google.maps.LatLngBounds();
     places.forEach(function(place) {
+      console.log(place);
       if (!place.geometry) {
         console.log("Returned place contains no geometry");
         return;
       }
+
       var icon = {
         url: place.icon,
         size: new google.maps.Size(71, 71),
@@ -86,16 +88,28 @@ function initAutocomplete() {
         scaledSize: new google.maps.Size(25, 25)
       };
 
-   
-      markers.push(new google.maps.Marker({
+
+      var contentString = `<h4>${place.name}</h4>
+      <p>Price: ${place.price_level}<br/>
+      rating: ${place.rating}`;
+
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString,
+        maxWidth: 160
+      });
+
+      var marker = new google.maps.Marker({
+        position: place.geometry.location,
         map: map,
         icon: icon,
-        title: place.name,
-        position: place.geometry.location
-      }));
+        title: place.name
+      });
+
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
 
       if (place.geometry.viewport) {
-        // Only geocodes have viewport.
         bounds.union(place.geometry.viewport);
       }
       else {
@@ -104,10 +118,14 @@ function initAutocomplete() {
     });
     map.fitBounds(bounds);
   });
-  
-   function buttonSearch() {
+
+  function buttonSearch() {
     var input = document.getElementById('whereTo');
-    new google.maps.places.Autocomplete(input);
+    var autocomplete = new google.maps.places.Autocomplete(input, { types: ['(cities)'] });
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+      var place = autocomplete.getPlace();
+
+    });
   }
 
   google.maps.event.addDomListener(window, 'load', buttonSearch);
