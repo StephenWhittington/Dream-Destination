@@ -58,6 +58,7 @@ function initAutocomplete() {
     searchBox.setBounds(map.getBounds());
   });
 
+
   var markers = [];
 
   searchBox.addListener('places_changed', function() {
@@ -66,7 +67,6 @@ function initAutocomplete() {
     if (places.length == 0) {
       return;
     }
-
     markers.forEach(function(marker) {
       marker.setMap(null);
     });
@@ -91,19 +91,31 @@ function initAutocomplete() {
 
       var contentString = `<h4>${place.name}</h4>
       <p>Price: ${place.price_level}<br/>
-      rating: ${place.rating}`;
+      Rating: ${place.rating}`;
 
       var infowindow = new google.maps.InfoWindow({
         content: contentString,
-        maxWidth: 160
+        maxWidth: 180
       });
 
       var marker = new google.maps.Marker({
         position: place.geometry.location,
         map: map,
         icon: icon,
-        title: place.name
+        title: place.name,
+        animation: google.maps.Animation.DROP
       });
+      markers.push(marker);
+      marker.addListener('click', toggleBounce);
+
+      function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        }
+        else {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+      }
 
       marker.addListener('click', function() {
         infowindow.open(map, marker);
