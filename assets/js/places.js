@@ -63,7 +63,7 @@ function initAutocomplete() {
 
   searchBox.addListener('places_changed', function() {
     var places = searchBox.getPlaces();
-
+    console.log(places.length);
     if (places.length == 0) {
       return;
     }
@@ -79,7 +79,7 @@ function initAutocomplete() {
         console.log("Returned place contains no geometry");
         return;
       }
-
+     
       var icon = {
         url: place.icon,
         size: new google.maps.Size(71, 71),
@@ -90,12 +90,13 @@ function initAutocomplete() {
 
 
       var contentString = `<h4>${place.name}</h4>
+      <p>Adress: ${place.formatted_address}<br/>
       <p>Price: ${place.price_level}<br/>
       Rating: ${place.rating}`;
 
       var infowindow = new google.maps.InfoWindow({
         content: contentString,
-        maxWidth: 180
+        maxWidth: 200
       });
 
       var marker = new google.maps.Marker({
