@@ -50,87 +50,199 @@ function initAutocomplete() {
     ]
   });
 
-  var mapPlaceInput = document.getElementById('searchMapInput');
-  var searchBox = new google.maps.places.SearchBox(mapPlaceInput);
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(mapPlaceInput);
 
-  map.addListener('bounds_changed', function() {
-    searchBox.setBounds(map.getBounds());
-  });
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(searchMapInput);
 
 
   var markers = [];
 
-  searchBox.addListener('places_changed', function() {
-    var places = searchBox.getPlaces();
-    console.log(places.length);
-    if (places.length == 0) {
-      return;
-    }
-    markers.forEach(function(marker) {
-      marker.setMap(null);
+  var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
+
+  var hostnameRegexp = new RegExp('^https?://.+?/');
+
+  var infoWindow;
+
+  var places;
+  
+  var autocomplete;
+  
+  
+  autocomplete = new google.maps.places.Autocomplete(
+    (
+      document.getElementById('searchMapInput')), {
+      types: ['(cities)']
     });
-    markers = [];
+  places = new google.maps.places.PlacesService(map);
 
-    var bounds = new google.maps.LatLngBounds();
-    places.forEach(function(place) {
-      console.log(place);
-      if (!place.geometry) {
-        console.log("Returned place contains no geometry");
-        return;
+  autocomplete.addListener('place_changed', onPlaceChanged);
+
+  infoWindow = new google.maps.InfoWindow({
+    content: document.getElementById('info-content')
+  });
+
+  function onPlaceChanged() {
+    var place = autocomplete.getPlace();
+
+    if (place.geometry) {
+      map.panTo(place.geometry.location);
+      map.setZoom(15);
+      search();
+    }
+  }
+
+  var bounds = new google.maps.LatLngBounds();
+
+
+
+  function search() {
+    var search = {
+      bounds: map.getBounds(),
+      types: ['lodging']
+    };
+    places.nearbySearch(search, function(results, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        clearResults();
+        clearMarkers();
+        // Create a marker for each hotel found, and
+        // assign a letter of the alphabetic to each marker icon.
+        for (var i = 0; i < results.length; i++) {
+          var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
+          var markerIcon = MARKER_PATH + markerLetter + '.png';
+          // Use marker animation to drop the icons incrementally on the map.
+          markers[i] = new google.maps.Marker({
+            position: results[i].geometry.location,
+            animation: google.maps.Animation.DROP,
+            icon: markerIcon
+          });
+          // If the user clicks a hotel marker, show the details of that hotel
+          // in an info window.
+          markers[i].placeResult = results[i];
+          google.maps.event.addListener(markers[i], 'click', showInfoWindow);
+          setTimeout(dropMarker(i), i * 100);
+          addResult(results[i], i);
+        }
       }
-     
-      var icon = {
-        url: place.icon,
-        size: new google.maps.Size(71, 71),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(25, 25)
-      };
+    });
+  }
 
+  function clearMarkers() {
+    for (var i = 0; i < markers.length; i++) {
+      if (markers[i]) {
+        markers[i].setMap(null);
+      }
+    }
+    markers = [];
+  }
 
-      var contentString = `<h4>${place.name}</h4>
-      <p>Adress: ${place.formatted_address}<br/>
-      <p>Price: ${place.price_level}<br/>
-      Rating: ${place.rating}`;
+  function dropMarker(i) {
+    return function() {
+      markers[i].setMap(map);
+    };
+  }
 
-      var infowindow = new google.maps.InfoWindow({
-        content: contentString,
-        maxWidth: 200
+  function addResult(result, i) {
+    var results = document.getElementById('searchResult');
+    var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
+    var markerIcon = MARKER_PATH + markerLetter + '.png';
+
+    var tr = document.createElement('tr');
+    tr.style.backgroundColor = (i % 2 === 0 ? '#F0F0F0' : '#FFFFFF');
+    tr.onclick = function() {
+      google.maps.event.trigger(markers[i], 'click');
+    };
+
+    var iconTd = document.createElement('td');
+    var nameTd = document.createElement('td');
+    var icon = document.createElement('img');
+    icon.src = markerIcon;
+    icon.setAttribute('class', 'placeIcon');
+    icon.setAttribute('className', 'placeIcon');
+    var name = document.createTextNode(result.name);
+    iconTd.appendChild(icon);
+    nameTd.appendChild(name);
+    tr.appendChild(iconTd);
+    tr.appendChild(nameTd);
+    results.appendChild(tr);
+  }
+
+  function clearResults() {
+    var results = document.getElementById('searchResult');
+    while (results.childNodes[0]) {
+      results.removeChild(results.childNodes[0]);
+    }
+  }
+
+  function showInfoWindow() {
+    var marker = this;
+    places.getDetails({ placeId: marker.placeResult.place_id },
+      function(place, status) {
+        if (status !== google.maps.places.PlacesServiceStatus.OK) {
+          return;
+        }
+        infoWindow.open(map, marker);
+        buildIWContent(place);
       });
+  }
 
-      var marker = new google.maps.Marker({
-        position: place.geometry.location,
-        map: map,
-        icon: icon,
-        title: place.name,
-        animation: google.maps.Animation.DROP
-      });
-      markers.push(marker);
-      marker.addListener('click', toggleBounce);
+  function buildIWContent(place) {
+    document.getElementById('iw-icon').innerHTML = '<img class="hotelIcon" ' +
+      'src="' + place.icon + '"/>';
+    document.getElementById('iw-url').innerHTML = '<b><a href="' + place.url +
+      '">' + place.name + '</a></b>';
+    document.getElementById('iw-address').textContent = place.vicinity;
 
-      function toggleBounce() {
-        if (marker.getAnimation() !== null) {
-          marker.setAnimation(null);
+    if (place.formatted_phone_number) {
+      document.getElementById('iw-phone-row').style.display = '';
+      document.getElementById('iw-phone').textContent =
+        place.formatted_phone_number;
+    }
+    else {
+      document.getElementById('iw-phone-row').style.display = 'none';
+    }
+
+    if (place.rating) {
+      var ratingHtml = '';
+      for (var i = 0; i < 5; i++) {
+        if (place.rating < (i + 0.5)) {
+          ratingHtml += '&#10025;';
         }
         else {
-          marker.setAnimation(google.maps.Animation.BOUNCE);
+          ratingHtml += '&#10029;';
         }
+        document.getElementById('iw-rating-row').style.display = '';
+        document.getElementById('iw-rating').innerHTML = ratingHtml;
       }
+    }
+    else {
+      document.getElementById('iw-rating-row').style.display = 'none';
+    }
 
-      marker.addListener('click', function() {
-        infowindow.open(map, marker);
-      });
+    // The regexp isolates the first part of the URL (domain plus subdomain)
+    // to give a short URL for displaying in the info window.
+    if (place.website) {
+      var fullUrl = place.website;
+      var website = hostnameRegexp.exec(place.website);
+      if (website === null) {
+        website = 'http://' + place.website + '/';
+        fullUrl = website;
+      }
+      document.getElementById('iw-website-row').style.display = '';
+      document.getElementById('iw-website').textContent = website;
+    }
+    else {
+      document.getElementById('iw-website-row').style.display = 'none';
+    }
+  }
 
-      if (place.geometry.viewport) {
-        bounds.union(place.geometry.viewport);
-      }
-      else {
-        bounds.extend(place.geometry.location);
-      }
-    });
-    map.fitBounds(bounds);
-  });
+  if (places.geometry.viewport) {
+    bounds.union(places.geometry.viewport);
+  }
+  else {
+    bounds.extend(places.geometry.location);
+  }
+   map.fitBounds(bounds);
+
+
 
   function buttonSearch() {
     var input = document.getElementById('whereTo');
@@ -143,3 +255,4 @@ function initAutocomplete() {
 
   google.maps.event.addDomListener(window, 'load', buttonSearch);
 }
+
