@@ -60,13 +60,11 @@ function initAutocomplete() {
 
   var hostnameRegexp = new RegExp('^https?://.+?/');
 
-  var infoWindow;
+  var places, infoWindow;
 
-  var places;
-  
   var autocomplete;
-  
-  
+
+
   autocomplete = new google.maps.places.Autocomplete(
     (
       document.getElementById('searchMapInput')), {
@@ -75,6 +73,7 @@ function initAutocomplete() {
   places = new google.maps.places.PlacesService(map);
 
   autocomplete.addListener('place_changed', onPlaceChanged);
+  document.getElementById('category').addEventListener('change', onPlaceChanged);
 
   infoWindow = new google.maps.InfoWindow({
     content: document.getElementById('info-content')
@@ -83,10 +82,47 @@ function initAutocomplete() {
   function onPlaceChanged() {
     var place = autocomplete.getPlace();
 
-    if (place.geometry) {
-      map.panTo(place.geometry.location);
-      map.setZoom(15);
-      search();
+    if ($("#accommodation").is(':selected')) {
+      if (place.geometry) {
+        map.panTo(place.geometry.location);
+        map.setZoom(15);
+        var search = {
+          bounds: map.getBounds(),
+          types: ['lodging']
+        };
+        searchNearby(search);
+      }
+      else {
+        $('#searchMapInput').attr("placeholder", "Enter a location");
+      }
+    }
+    else if ($("#bars").is(':selected')) {
+      if (place.geometry) {
+        map.panTo(place.geometry.location);
+        map.setZoom(15);
+        search = {
+          bounds: map.getBounds(),
+          types: ['bar', 'restaurant']
+        };
+        searchNearby(search);
+      }
+      else {
+        $('#searchMapInput').attr("placeholder", "Enter a location");
+      }
+    }
+    else if ($("#tourist").is(':selected')) {
+      if (place.geometry) {
+        map.panTo(place.geometry.location);
+        map.setZoom(15);
+        search = {
+          bounds: map.getBounds(),
+          types: ['museum', 'amusement_park', 'art_gallery']
+        };
+        searchNearby(search);
+      }
+      else {
+        $('#searchMapInput').attr("placeholder", "Enter a location");
+      }
     }
   }
 
@@ -94,11 +130,7 @@ function initAutocomplete() {
 
 
 
-  function search() {
-    var search = {
-      bounds: map.getBounds(),
-      types: ['lodging']
-    };
+  function searchNearby(search) {
     places.nearbySearch(search, function(results, status) {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         clearResults();
@@ -234,13 +266,13 @@ function initAutocomplete() {
     }
   }
 
-  if (places.geometry.viewport) {
-    bounds.union(places.geometry.viewport);
+  if (places.geometry) {
+    bounds.union(places.geometry);
   }
   else {
     bounds.extend(places.geometry.location);
   }
-   map.fitBounds(bounds);
+  map.fitBounds(bounds);
 
 
 
@@ -255,4 +287,3 @@ function initAutocomplete() {
 
   google.maps.event.addDomListener(window, 'load', buttonSearch);
 }
-

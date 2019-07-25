@@ -12,12 +12,13 @@
 
 <body class="background-image">
 
+    <div class="opaque-overlay">&nbsp;</div>
+
     <div class="container">
         <nav class="navbar navbar-dark bg-dark">
             <div class="mx-auto">
                 <a class="navbar-brand" href="index.html">Dream Destination</a>
             </div>
-
         </nav>
     </div>
 
@@ -51,12 +52,24 @@
         </div>
     </section>
 
+    
     <section class="container">
         <br>
         <h2 class="map-header text-center">Find Your Dream Location</h2>
+        
         <input id="searchMapInput" class="mapControls" type="text" placeholder="Enter a Location">
-        <div id="map"></div>
+        <select class="select-controls " id="category">
+                    <option value="" selected>Select One</option>
+                    <option id="accommodation" value="accommodation">Accommodation</option>
+                    <option id="bars" value="bars">Bars/Restaurants</option>
+                    <option id="tourist" value="tourist">Tourist Attractions</option>
+            </select>
+        <div id="map">
+        </div>
+        <br>
+    </section>
 
+    <section class="container">
         <div id="listing">
             <table id="resultsTable">
                 <tbody id="searchResult"></tbody>

@@ -3,6 +3,27 @@ body {
     padding: 0;
 }
 
+.background-image {
+    height: 100vh;
+    background: url(../images/holidayBackground.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+}
+
+.opaque-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
 .mx-auto {
     width: 180px;
 }
@@ -48,13 +69,40 @@ body {
     border-color: #4d90fe;
 }
 
+
+.select-controls {
+    margin-top: 10px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#category {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 25%;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 50%;
+}
+
+#category:focus {
+    border-color: #4d90fe;
+}
+
 table {
     font-size: 12px;
 }
 
 #listing {
     position: none;
-    width: 200px;
+    width: inherit;
     height: 470px;
     overflow: auto;
     left: 442px;
@@ -77,7 +125,7 @@ table {
 
 #resultsTable {
     border-collapse: collapse;
-    width: 240px;
+    width: inherit;
 }
 
 #rating {
