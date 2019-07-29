@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Rochester:100,200,300,400,500,600,700');
 body {
     margin: 0;
     padding: 0;
@@ -24,8 +25,19 @@ body {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.mx-auto {
-    width: 180px;
+.navbar-brand {
+    font-family: "Rochester", sans-serif;
+    color: white;
+    font-size: 50px;
+}
+
+.navbar-brand:hover{
+        color: #aadaff;
+}
+
+.map-header {
+    font-family: "Rochester", sans-serif;
+    color: white;
 }
 
 .main-search {
@@ -59,10 +71,8 @@ body {
     font-family: Roboto;
     font-size: 15px;
     font-weight: 300;
-    margin-left: 25%;
     padding: 0 11px 0 13px;
     text-overflow: ellipsis;
-    width: 50%;
 }
 
 #searchMapInput:focus {
@@ -72,6 +82,7 @@ body {
 
 .select-controls {
     margin-top: 10px;
+    margin-bottom: 10px;
     border: 1px solid transparent;
     border-radius: 2px 0 0 2px;
     box-sizing: border-box;
@@ -86,10 +97,8 @@ body {
     font-family: Roboto;
     font-size: 15px;
     font-weight: 300;
-    margin-left: 25%;
     padding: 0 11px 0 13px;
     text-overflow: ellipsis;
-    width: 50%;
 }
 
 #category:focus {

@@ -51,9 +51,6 @@ function initAutocomplete() {
   });
 
 
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(searchMapInput);
-
-
   var markers = [];
 
   var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
