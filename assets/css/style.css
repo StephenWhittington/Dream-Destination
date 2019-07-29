@@ -35,6 +35,11 @@ body {
         color: #aadaff;
 }
 
+.container-full {
+    padding-right: 0;
+    padding-left: 0;
+}
+
 .map-header {
     font-family: "Rochester", sans-serif;
     color: white;
