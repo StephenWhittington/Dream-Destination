@@ -60,6 +60,22 @@ function initAutocomplete() {
   var places, infoWindow;
 
   var autocomplete;
+  
+  var clearResult = {
+    center:  { lat: 46.619261, lng: -33.134766 },
+    zoom: 3
+  };
+  
+  document.getElementById("resetSearch").onclick = function() {
+    clearResults();
+    clearMarkers();
+    $('#category')[0].selectedIndex = 0;
+    $("#searchMapInput").val("");
+    $('#searchResult').html("");
+    map.setZoom(clearResult.zoom);
+    map.setCenter(clearResult.center);
+    places = "";
+};
 
 
   autocomplete = new google.maps.places.Autocomplete(
