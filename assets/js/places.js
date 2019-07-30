@@ -60,12 +60,13 @@ function initAutocomplete() {
   var places, infoWindow;
 
   var autocomplete;
-  
+
   var clearResult = {
-    center:  { lat: 46.619261, lng: -33.134766 },
+    center: { lat: 46.619261, lng: -33.134766 },
     zoom: 3
   };
-  
+
+  // Button that resets the users input in the map to start again
   document.getElementById("resetSearch").onclick = function() {
     clearResults();
     clearMarkers();
@@ -74,9 +75,18 @@ function initAutocomplete() {
     $('#searchResult').html("");
     map.setZoom(clearResult.zoom);
     map.setCenter(clearResult.center);
-    places = "";
-};
+    place = "";
+  };
 
+  function modelButton(){
+  autocomplete = new google.maps.places.Autocomplete(
+    (
+      document.getElementById('whereTo')), {
+      types: ['(cities)']
+    });
+    
+  }
+  modelButton();
 
   autocomplete = new google.maps.places.Autocomplete(
     (
@@ -283,17 +293,5 @@ function initAutocomplete() {
     bounds.extend(places.geometry.location);
   }
   map.fitBounds(bounds);
-
-
-
-  function buttonSearch() {
-    var input = document.getElementById('whereTo');
-    var autocomplete = new google.maps.places.Autocomplete(input, { types: ['(cities)'] });
-    google.maps.event.addListener(autocomplete, 'place_changed', function() {
-      var place = autocomplete.getPlace();
-
-    });
-  }
-
-  google.maps.event.addDomListener(window, 'load', buttonSearch);
+  
 }

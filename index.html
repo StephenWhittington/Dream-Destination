@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dream Destination</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 </head>
 
@@ -111,10 +112,10 @@
         <br>
         <h2 class="map-header text-center">Find Your Dream Location</h2>
         <div class="row">
-            <div class="col-md-6 text-center">
+            <div class="col-md-4 text-center">
                 <input id="searchMapInput" class="mapControls" type="text" placeholder="Enter a Location">
             </div>
-            <div class="col-md-6 text-center">
+            <div class="col-md-4 text-center">
                 <select class="select-controls" id="category">
                     <option value="" selected>Select One</option>
                     <option id="accommodation" value="accommodation">Accommodation</option>
@@ -122,9 +123,9 @@
                     <option id="tourist" value="tourist">Tourist Attractions</option>
             </select>
             </div>
-        </div>
-        <div class="text-center">
-            <button id="resetSearch" class="btn btn-primary" type="button"><strong>Reset</strong></button>
+            <div class="reset-button col-md-4 text-center">
+                <button id="resetSearch" class="btn btn-primary" type="button"><strong>Reset</strong><i class="fa fa-reply" aria-hidden="true"></i></button>
+            </div>
         </div>
         <div id="map"></div>
         <br>
