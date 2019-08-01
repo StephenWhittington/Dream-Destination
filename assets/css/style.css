@@ -42,6 +42,7 @@ body {
     color: #aadaff;
 }
 
+
 .container-full {
     padding-right: 0;
     padding-left: 0;
@@ -169,4 +170,8 @@ table {
 
 .iw_table_icon {
     text-align: right;
+}
+
+#iw-rating {
+    color: #007bff;
 }

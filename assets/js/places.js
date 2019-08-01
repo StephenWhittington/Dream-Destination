@@ -65,7 +65,7 @@ function initAutocomplete() {
     center: { lat: 46.619261, lng: -33.134766 },
     zoom: 3
   };
-
+  
   // Button that resets the users input in the map to start again
   document.getElementById("resetSearch").onclick = function() {
     clearResults();
@@ -77,13 +77,25 @@ function initAutocomplete() {
     map.setCenter(clearResult.center);
     place = "";
   };
+  
+  document.getElementById('scrollToMap').onclick = function(){
+    var scroll = document.getElementById("map-Scroll");
+    scroll.scrollIntoView();
+  };
+  
 
   function modelButton(){
-  autocomplete = new google.maps.places.Autocomplete(
+  var searchBox = new google.maps.places.SearchBox(
     (
       document.getElementById('whereTo')), {
-      types: ['(cities)']
+      types: ['(cities)'],
+      componentRestrictions: {country: ["us", "uk", "aus", "ita", "ch"]}
     });
+    
+    searchBox.addListener('bounds_changed', function() {
+      searchBox.setBounds(searchBox.getBounds());
+    });
+    
     
   }
   modelButton();

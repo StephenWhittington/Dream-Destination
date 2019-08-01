@@ -18,7 +18,11 @@
     <nav class="navbar col-md-12">
         <div class="mx-auto text-center">
             <a class="navbar-brand" href="index.html">Dream Destination</a>
+            <div class="col-md-12">
+                <button class="btn btn-primary" id="scrollToMap">Start Your Search</button>
+            </div>
         </div>
+
     </nav>
 
     <section class="container-fluid container-full">
@@ -110,7 +114,7 @@
 
     <section class="container">
         <br>
-        <h2 class="map-header text-center">Find Your Dream Location</h2>
+        <h2 class="map-header text-center" id="map-Scroll">Find Your Dream Location</h2>
         <div class="row">
             <div class="col-md-4 text-center">
                 <input id="searchMapInput" class="mapControls" type="text" placeholder="Enter a Location">
@@ -171,6 +175,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="assets/js/places.js"></script>
+    <script src="assets/js/pageInteract.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCToTw2ZDwtlRnWtRgG6Cv6kYVGeyyVWvU&callback=initMap&libraries=places&callback=initAutocomplete"></script>
 </body>
 
