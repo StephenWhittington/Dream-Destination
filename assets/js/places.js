@@ -65,7 +65,7 @@ function initAutocomplete() {
     center: { lat: 46.619261, lng: -33.134766 },
     zoom: 3
   };
-  
+
   // Button that resets the users input in the map to start again
   document.getElementById("resetSearch").onclick = function() {
     clearResults();
@@ -77,26 +77,23 @@ function initAutocomplete() {
     map.setCenter(clearResult.center);
     place = "";
   };
-  
-  document.getElementById('scrollToMap').onclick = function(){
-    var scroll = document.getElementById("map-Scroll");
-    scroll.scrollIntoView();
-  };
-  
 
-  function modelButton(){
-  var searchBox = new google.maps.places.SearchBox(
-    (
-      document.getElementById('whereTo')), {
-      types: ['(cities)'],
-      componentRestrictions: {country: ["us", "uk", "aus", "ita", "ch"]}
-    });
-    
+  $('#listing').hide();
+  $('#hr').hide();
+
+  function modelButton() {
+    var searchBox = new google.maps.places.SearchBox(
+      (
+        document.getElementById('whereTo')), {
+        types: ['(cities)'],
+        componentRestrictions: { country: ["us", "uk", "aus", "ita", "ch"] }
+      });
+
     searchBox.addListener('bounds_changed', function() {
       searchBox.setBounds(searchBox.getBounds());
     });
-    
-    
+
+
   }
   modelButton();
 
@@ -170,6 +167,9 @@ function initAutocomplete() {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         clearResults();
         clearMarkers();
+        $('#listing').show();
+        $('#hr').show();
+        
         // Create a marker for each hotel,bar/restaurant,tourist attraction found and
         // assign a letter of the alphabetic to each marker icon.
         for (var i = 0; i < results.length; i++) {
@@ -228,6 +228,8 @@ function initAutocomplete() {
     tr.appendChild(nameTd);
     results.appendChild(tr);
   }
+
+
 
   function clearResults() {
     var results = document.getElementById('searchResult');
@@ -305,5 +307,5 @@ function initAutocomplete() {
     bounds.extend(places.geometry.location);
   }
   map.fitBounds(bounds);
-  
+
 }
