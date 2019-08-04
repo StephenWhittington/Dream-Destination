@@ -78,6 +78,11 @@ function initAutocomplete() {
     place = "";
   };
 
+  document.getElementById('scrollToMap').onclick = function() {
+    var scroll = document.getElementById("map-Scroll");
+    scroll.scrollIntoView();
+  };
+
   $('#listing').hide();
   $('#hr').hide();
 
@@ -169,7 +174,7 @@ function initAutocomplete() {
         clearMarkers();
         $('#listing').show();
         $('#hr').show();
-        
+
         // Create a marker for each hotel,bar/restaurant,tourist attraction found and
         // assign a letter of the alphabetic to each marker icon.
         for (var i = 0; i < results.length; i++) {
@@ -213,6 +218,10 @@ function initAutocomplete() {
     tr.style.backgroundColor = (i % 2 === 0 ? '#F0F0F0' : '#FFFFFF');
     tr.onclick = function() {
       google.maps.event.trigger(markers[i], 'click');
+
+      // scrolls to the map results when the user selects a result
+      var scroll = document.getElementById("map");
+      scroll.scrollIntoView();
     };
 
     var iconTd = document.createElement('td');
