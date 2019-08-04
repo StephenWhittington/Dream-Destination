@@ -73,6 +73,8 @@ function initAutocomplete() {
     $('#category')[0].selectedIndex = 0;
     $("#searchMapInput").val("");
     $('#searchResult').html("");
+    $('#listing').hide();
+    $('#hr').hide();
     map.setZoom(clearResult.zoom);
     map.setCenter(clearResult.center);
     place = "";
