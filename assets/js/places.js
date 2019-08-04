@@ -88,18 +88,13 @@ function initAutocomplete() {
   $('#listing').hide();
   $('#hr').hide();
 
-  function modelButton() {
-    var searchBox = new google.maps.places.SearchBox(
+  function modelButton(onPlaceChanged, search) {
+    autocomplete = new google.maps.places.Autocomplete(
       (
         document.getElementById('whereTo')), {
-        types: ['(cities)'],
-        componentRestrictions: { country: ["us", "uk", "aus", "ita", "ch"] }
+        types: ['(cities)']
       });
-
-    searchBox.addListener('bounds_changed', function() {
-      searchBox.setBounds(searchBox.getBounds());
-    });
-
+      
 
   }
   modelButton();
