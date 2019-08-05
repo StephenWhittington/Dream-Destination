@@ -75,6 +75,7 @@ function initAutocomplete() {
     $('#searchResult').html("");
     $('#listing').hide();
     $('#hr').hide();
+    $('#place-photo-spot').hide();
     map.setZoom(clearResult.zoom);
     map.setCenter(clearResult.center);
     place = "";
@@ -85,6 +86,7 @@ function initAutocomplete() {
     scroll.scrollIntoView();
   };
 
+  $('#place-photo-spot').hide();
   $('#listing').hide();
   $('#hr').hide();
 
@@ -94,8 +96,6 @@ function initAutocomplete() {
         document.getElementById('whereTo')), {
         types: ['(cities)']
       });
-
-
   }
   modelButton();
 
@@ -245,8 +245,8 @@ function initAutocomplete() {
     iconTd.appendChild(icon);
     nameTd.appendChild(name);
     icon2Td.appendChild(icon2);
-    tr.appendChild(icon2Td)
     tr.appendChild(iconTd);
+    tr.appendChild(icon2Td);
     tr.appendChild(nameTd);
     results.appendChild(tr);
   }
@@ -273,6 +273,7 @@ function initAutocomplete() {
   }
 
   function buildIWContent(place) {
+    $('#place-photo-spot').show();
     document.getElementById('iw-icon').innerHTML = '<img class="hotelIcon" ' +
       'src="' + place.icon + '"/>';
     document.getElementById('iw-url').innerHTML = '<b><a href="' + place.url +
@@ -323,7 +324,7 @@ function initAutocomplete() {
     
     if (place.photos) {
       var photoUrl = place.photos[0].getUrl({ maxWidth: 150, maxHeight: 150 });
-      document.getElementById('iw-photo-spot').src = photoUrl;
+      document.getElementById('place-photo-spot').src = photoUrl;
     }
     else {
       document.getElementById('iw-photo-row').style.display = 'none';
