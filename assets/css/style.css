@@ -154,6 +154,10 @@ table {
     overflow-x: hidden;
 }
 
+.result-image {
+    width: 100%;
+}
+
 
 .placeIcon {
     width: 20px;

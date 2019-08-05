@@ -323,11 +323,11 @@ function initAutocomplete() {
     }
     
     if (place.photos) {
-      var photoUrl = place.photos[0].getUrl({ maxWidth: 150, maxHeight: 150 });
+      var photoUrl = place.photos[5].getUrl({ maxWidth: 300, maxHeight: 250 });
       document.getElementById('place-photo-spot').src = photoUrl;
     }
     else {
-      document.getElementById('iw-photo-row').style.display = 'none';
+      document.getElementById('place-photo-spot').style.display = 'none';
     }
   }
 
