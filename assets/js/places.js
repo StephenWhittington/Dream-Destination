@@ -94,7 +94,7 @@ function initAutocomplete() {
         document.getElementById('whereTo')), {
         types: ['(cities)']
       });
-      
+
 
   }
   modelButton();
@@ -210,6 +210,14 @@ function initAutocomplete() {
     var results = document.getElementById('searchResult');
     var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
     var markerIcon = MARKER_PATH + markerLetter + '.png';
+    var img;
+    
+    if (result.photos) {
+      img = result.photos[0].getUrl({maxWidth: 45, maxHeight: 45});
+    }
+    else {
+      img = "no Image";
+    }
 
     var tr = document.createElement('tr');
     tr.style.backgroundColor = (i % 2 === 0 ? '#F0F0F0' : '#FFFFFF');
@@ -222,14 +230,22 @@ function initAutocomplete() {
     };
 
     var iconTd = document.createElement('td');
+    var icon2Td = document.createElement('td');
     var nameTd = document.createElement('td');
     var icon = document.createElement('img');
+    var icon2 = document.createElement('img');
+    
     icon.src = markerIcon;
     icon.setAttribute('class', 'placeIcon');
     icon.setAttribute('className', 'placeIcon');
+    icon2.src = img;
+    icon2.setAttribute('class', 'placeImage');
+    icon2.setAttribute('imagePlace', 'placeImage');
     var name = document.createTextNode(result.name);
     iconTd.appendChild(icon);
     nameTd.appendChild(name);
+    icon2Td.appendChild(icon2);
+    tr.appendChild(icon2Td)
     tr.appendChild(iconTd);
     tr.appendChild(nameTd);
     results.appendChild(tr);
@@ -303,6 +319,14 @@ function initAutocomplete() {
     }
     else {
       document.getElementById('iw-website-row').style.display = 'none';
+    }
+    
+    if (place.photos) {
+      var photoUrl = place.photos[0].getUrl({ maxWidth: 150, maxHeight: 150 });
+      document.getElementById('iw-photo-spot').src = photoUrl;
+    }
+    else {
+      document.getElementById('iw-photo-row').style.display = 'none';
     }
   }
 
