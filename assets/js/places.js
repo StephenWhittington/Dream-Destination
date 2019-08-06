@@ -76,6 +76,8 @@ function initAutocomplete() {
     $('#listing').hide();
     $('#hr').hide();
     $('#place-photo-spot').hide();
+    $('#place-photo-spot2').hide();
+    $('#place-photo-spot3').hide();
     map.setZoom(clearResult.zoom);
     map.setCenter(clearResult.center);
     place = "";
@@ -87,6 +89,8 @@ function initAutocomplete() {
   };
 
   $('#place-photo-spot').hide();
+  $('#place-photo-spot2').hide();
+  $('#place-photo-spot3').hide();
   $('#listing').hide();
   $('#hr').hide();
 
@@ -211,9 +215,9 @@ function initAutocomplete() {
     var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
     var markerIcon = MARKER_PATH + markerLetter + '.png';
     var img;
-    
+
     if (result.photos) {
-      img = result.photos[0].getUrl({maxWidth: 45, maxHeight: 45});
+      img = result.photos[0].getUrl({ maxWidth: 45, maxHeight: 45 });
     }
     else {
       img = "no Image";
@@ -234,7 +238,7 @@ function initAutocomplete() {
     var nameTd = document.createElement('td');
     var icon = document.createElement('img');
     var icon2 = document.createElement('img');
-    
+
     icon.src = markerIcon;
     icon.setAttribute('class', 'placeIcon');
     icon.setAttribute('className', 'placeIcon');
@@ -274,6 +278,9 @@ function initAutocomplete() {
 
   function buildIWContent(place) {
     $('#place-photo-spot').show();
+    $('#place-photo-spot2').show();
+    $('#place-photo-spot3').show();
+    
     document.getElementById('iw-icon').innerHTML = '<img class="hotelIcon" ' +
       'src="' + place.icon + '"/>';
     document.getElementById('iw-url').innerHTML = '<b><a href="' + place.url +
@@ -321,13 +328,20 @@ function initAutocomplete() {
     else {
       document.getElementById('iw-website-row').style.display = 'none';
     }
-    
+
     if (place.photos) {
-      var photoUrl = place.photos[5].getUrl({ maxWidth: 300, maxHeight: 250 });
+      console.log(place.photos);
+      var photoUrl = place.photos[0].getUrl({ maxWidth: 1200, maxHeight: 750 });
+      var photoUrl2 = place.photos[1].getUrl({ maxWidth: 1200, maxHeight: 750 });
+      var photoUrl3 = place.photos[2].getUrl({ maxWidth: 1200, maxHeight: 750 });
       document.getElementById('place-photo-spot').src = photoUrl;
+      document.getElementById('place-photo-spot2').src = photoUrl2;
+      document.getElementById('place-photo-spot3').src = photoUrl3;
     }
     else {
       document.getElementById('place-photo-spot').style.display = 'none';
+      document.getElementById('place-photo-spot2').style.display = 'none';
+      document.getElementById('place-photo-spot3').style.display = 'none';
     }
   }
 
