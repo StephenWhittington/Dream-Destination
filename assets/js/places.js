@@ -16,7 +16,7 @@ function initAutocomplete() {
         "featureType": "administrative",
         "elementType": "labels",
         "stylers": [{
-          "color": "#009fff"
+          "color": "#000000"
         }]
       },
       {
@@ -123,7 +123,7 @@ function initAutocomplete() {
     if ($("#accommodation").is(':selected')) {
       if (place.geometry) {
         map.panTo(place.geometry.location);
-        map.setZoom(15);
+        map.setZoom(14);
         var search = {
           bounds: map.getBounds(),
           types: ['lodging']
@@ -137,7 +137,7 @@ function initAutocomplete() {
     else if ($("#bars").is(':selected')) {
       if (place.geometry) {
         map.panTo(place.geometry.location);
-        map.setZoom(15);
+        map.setZoom(14);
         search = {
           bounds: map.getBounds(),
           types: ['bar', 'restaurant']
@@ -151,10 +151,10 @@ function initAutocomplete() {
     else if ($("#tourist").is(':selected')) {
       if (place.geometry) {
         map.panTo(place.geometry.location);
-        map.setZoom(15);
+        map.setZoom(14);
         search = {
           bounds: map.getBounds(),
-          types: ['museum', 'amusement_park', 'art_gallery']
+          types: ['museum', 'amusement_park', 'art_gallery', 'aquarium', 'zoo', 'movie_theater']
         };
         searchNearby(search);
       }
@@ -220,7 +220,7 @@ function initAutocomplete() {
       img = result.photos[0].getUrl({ maxWidth: 45, maxHeight: 45 });
     }
     else {
-      img = "no Image";
+      img = "";
     }
 
     var tr = document.createElement('tr');
@@ -280,7 +280,7 @@ function initAutocomplete() {
     $('#place-photo-spot').show();
     $('#place-photo-spot2').show();
     $('#place-photo-spot3').show();
-    
+
     document.getElementById('iw-icon').innerHTML = '<img class="hotelIcon" ' +
       'src="' + place.icon + '"/>';
     document.getElementById('iw-url').innerHTML = '<b><a href="' + place.url +

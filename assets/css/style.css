@@ -196,3 +196,17 @@ table {
 #iw-rating {
     color: #007bff;
 }
+
+.footer-details {
+    font-family: "Rochester", sans-serif;
+    color: white;
+}
+
+footer {
+    background-color: #007bff;
+    margin-top: 20px;
+}
+
+p {
+    font-size: 20px;
+}
