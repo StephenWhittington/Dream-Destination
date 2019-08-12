@@ -25,10 +25,16 @@ helps them achieve that goal.
 
 ### User Stories
 
-1. **list of user stories**
+#### **list of user stories.**
 
-..* **Select a destination city**: The user clicks on the 'enter a location' autocomplete search bar and starts typing
+* **Select a destination city**: The user clicks on the 'enter a location' autocomplete search bar and starts typing
  a letter, the autocomplete result will return suggestions in a dropdown. They can either type a full name of a location
 or just select from the drop down menue when they have typed in enough information for it to appear in the dropdown.
+
+* **Select a category result**: After selecting a city the user clicks on the category dropdown and selects an option from the list
+and results are shown on the map.
+
+* **To use map zoom feature**: The user can select the zoom feature in the bottom right of the map or use `Ctrl` + `Mouse Scroll` to zoom
+in and out of the map.
 
 
