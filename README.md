@@ -10,7 +10,7 @@ navigate and is responsive on mobile and desktop.
 
 ## UX Process For My Website
 
-[Link to my figma mockup](https://www.google.com)
+[Link to my figma mockup](https://github.com/StephenWhittington/Dream-Destination/blob/master/assets/images/Dream%20Destination%20API%20(1).png)
 
 I started with a desktop webpage mockup using figma, I wanted the webpage to be easy to use
 and not confusing with a simple layout. Because it is a single page application
