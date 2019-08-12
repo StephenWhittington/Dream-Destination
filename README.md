@@ -24,3 +24,11 @@ with pictures. The user wants to get information quickly with little effort and 
 helps them achieve that goal.
 
 ### User Stories
+
+1. **list of user stories**
+
+..* **Select a destination city**: The user clicks on the 'enter a location' autocomplete search bar and starts typing
+ a letter, the autocomplete result will return suggestions in a dropdown. They can either type a full name of a location
+or just select from the drop down menue when they have typed in enough information for it to appear in the dropdown.
+
+
