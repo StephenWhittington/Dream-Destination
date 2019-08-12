@@ -94,14 +94,14 @@ function initAutocomplete() {
   $('#listing').hide();
   $('#hr').hide();
 
-  function modelButton(onPlaceChanged, search) {
+  function modalButton() {
     autocomplete = new google.maps.places.Autocomplete(
       (
         document.getElementById('whereTo')), {
         types: ['(cities)']
       });
   }
-  modelButton();
+  modalButton();
 
   autocomplete = new google.maps.places.Autocomplete(
     (

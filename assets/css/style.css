@@ -53,15 +53,6 @@ body {
     color: white;
 }
 
-.main-search {
-    text-align: center;
-    padding-top: 80px;
-}
-
-.pac-container {
-    z-index: 1051 !important;
-}
-
 .reset-button {
     padding: 5px;
 }
