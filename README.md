@@ -37,4 +37,10 @@ and results are shown on the map.
 * **To use map zoom feature**: The user can select the zoom feature in the bottom right of the map or use `Ctrl` + `Mouse Scroll` to zoom
 in and out of the map.
 
+* **Use the results list**: The user can select one of the results from the list and it will scroll up to the map
+with the Info window information displayed.
+
+* **Select Infowindow result**: When the user clicks on a result from either the map marker or result list pictures will be displayed
+of the place they have selected under the map a maximum of three pictures are shown.
+
 
