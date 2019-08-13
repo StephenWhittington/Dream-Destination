@@ -106,3 +106,29 @@ pictures are shown of the relevant place under the map.
 * [Google Maps and Places API](https://cloud.google.com/maps-platform/)
     
     * The website uses the Google Maps API and the Google Places API to allow users to interact and search using a map.
+
+# Testing 
+
+### User Story Tests Completed
+
+1. **Autocomplete Search**:
+    1.  Type in information of a city.
+    2.  A dropdown list appears with matching results to information entered.
+    3.  Confirmed that the user can select a result from the list.
+
+1. **Select A Option From The Category Dropdown**:
+    1. Select a different option from the list.
+    2. The results update on the map.
+    3. Confirmed that the results change when the user selects a different option.
+
+1. **Reset Button**:
+    1. Click on the reset button.
+    2. The autocomplete search bar resets and so does the catagory dropdown menue.
+    3. The map resets to default and some HTML elements are also hidden again until used.
+    4. Confirmed that everything is changed back to default when the user clicks on the reset button.
+
+1. **Infowindow Place Marker**
+    1. Click on a marker result.
+    2. An infowindow appears with information about the selected place.
+    3. Click the 'X' button to close the infowindow or click on another marker to close it.
+    4. Confirmed that if the user selects a marker result and infowindow appears and can be closed manually or by selecting another option.
