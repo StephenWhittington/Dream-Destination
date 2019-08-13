@@ -89,6 +89,12 @@ pictures are shown of the relevant place under the map.
 
     * The website uses JQuery The Document Object Model (DOM) to simplify manipulation.
 
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+ 
+    * I have used JavaScript to add my own interactivity to the site, I used it to code my map and link it to the autocomplete search bar
+    and catagory dropdown menue. Also to select callback arrays from the Google Maps/Places results, and to have buttons/results scroll to the map
+    to start,reset or view infowindow information. I also used it to hide different HTML elements that didn't need to be shown unless selected by the user.
+
 * [Bootstrap v4](https://getbootstrap.com/)
 
     * This website uses bootstrap, To add HTML and CSS-based templates for typography,forms,buttons,navigation and other interface components.
