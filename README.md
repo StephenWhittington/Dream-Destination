@@ -43,4 +43,31 @@ with the Info window information displayed.
 * **Select Infowindow result**: When the user clicks on a result from either the map marker or result list pictures will be displayed
 of the place they have selected under the map a maximum of three pictures are shown.
 
+# Features 
+
+## Existing Features
+
+* **Carousel Pictures** - A five picture carousel of recommended cities that the user can navigate through by clicking or waiting.
+
+* **Start Your Search Button** - Allows desktop users by clicking to scroll to the map to start their search.
+
+* **Autocomplete Search Bar** - Allows the user to search for specific cities and locations quicker, as suggestions
+appear in the dropdown based on the information they have entered. When the user has typed enough into the search bar the city or location
+they are looking for should appear.
+
+* **Select Catagory Dropdown** - After selecting a location clicking the catagory dropdown allows the user to select an option of 
+accommodation/bars/restaurants or tourist attractions.
+
+* **Reset Button** - Allows the user to reset the current information entered in the autocomplete search bar and the catagory option 
+dropdown by clicking on it, The button changes everything back to defualt including the map zoom/center position.
+
+* **Infowindow Map Result** - When clicked the infowindow shows the address, phone number, rating and website by selecting one of the placed
+marker results.
+
+* **Result List** - Allows the user to click one of the results which then scrolls up to find the infowindow opened.
+
+* **Pictures Of Places** - When the user has selected a result either from the map markers or result list a maximum of three
+pictures are shown of the relevant place under the map. 
+
+
 
