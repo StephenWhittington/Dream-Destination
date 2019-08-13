@@ -67,7 +67,36 @@ marker results.
 * **Result List** - Allows the user to click one of the results which then scrolls up to find the infowindow opened.
 
 * **Pictures Of Places** - When the user has selected a result either from the map markers or result list a maximum of three
-pictures are shown of the relevant place under the map. 
+pictures are shown of the relevant place under the map.
 
+## Features Left To Implement 
 
+* Adding city result pictures under the map along with information on them.
 
+* More search options in catagory dropdown.
+
+# Technologies Used
+
+* [HTML5](https://en.wikipedia.org/wiki/HTML5)
+  
+    * The website uses Semantic Markup Language as its foundation.   
+
+* [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+
+    * The website uses Cascading Style Sheets to implement design and customization.
+
+* [jQuery](https://jquery.com/)
+
+    * The website uses JQuery The Document Object Model (DOM) to simplify manipulation.
+
+* [Bootstrap v4](https://getbootstrap.com/)
+
+    * This website uses bootstrap, To add HTML and CSS-based templates for typography,forms,buttons,navigation and other interface components.
+
+* [Font Awesome](https://fontawesome.com/)
+    
+    * The website uses fontawesome, Because icons are a visual way to help add meaning to elements. And specific font styles add customization to web content.
+    
+* [Google Maps and Places API](https://cloud.google.com/maps-platform/)
+    
+    * The website uses the Google Maps API and the Google Places API to allow users to interact and search using a map.
