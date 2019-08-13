@@ -127,8 +127,35 @@ pictures are shown of the relevant place under the map.
     3. The map resets to default and some HTML elements are also hidden again until used.
     4. Confirmed that everything is changed back to default when the user clicks on the reset button.
 
-1. **Infowindow Place Marker**
+1. **Infowindow Place Marker**:
     1. Click on a marker result.
     2. An infowindow appears with information about the selected place.
     3. Click the 'X' button to close the infowindow or click on another marker to close it.
-    4. Confirmed that if the user selects a marker result and infowindow appears and can be closed manually or by selecting another option.
+    4. Confirmed that if the user selects a marker result an infowindow appears and can be closed manually or by selecting another option.
+
+1. **Map Zoom Feature**:
+    1. Click on the '+' '-' keys and it zooms in or out
+    2. Or use 'Ctrl' + 'MouseScroll' to scroll in and out
+    3. Confirmed that the user can scroll in and out of the map by clicking on the interactive option on the map or by using key/mouse shortcuts.
+
+1. **Results List**:
+    1. When information is entered the result list updates with the map changes.
+    2. When a result is clicked on the list it scrolls up to the map and is displayed.
+    3. Confirmed that when the user selects a result from the list it scrolls up to the map and information is displayed.
+
+1. **Pictures Displayed**:
+    1. When a marker is selected from the map or a result is clicked on from the result table.
+    2. Pictures are displayed under the map of the selected marker/result.
+    3. Confirmed that when the user clicks on a marker on the map or the result table pictures are shown under the map.
+
+
+### How it works on different browsers and screen sizes
+
+I have tested my project on different screen sizes and i am happy with how it works from desktop to mobile first. After going
+over my project i have noticed some things that i will change for the better like the start search button. I will hide it on mobile
+with a media querie, but have it for desktop so the user can scroll straight to the map so they can start their search. I tested my
+web page on the three main web browsers Chrome/IE and Mozilla FireFox and it works correctly on all of them, I also had family and friends
+test my page to find any bugs or problems which helped with noticing different issues and things to fix. Overall i am happy of how my single
+webpage application works on mobile,tablet and desktop screen sizes.
+
+## Bugs And Problems
