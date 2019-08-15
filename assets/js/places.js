@@ -1,4 +1,4 @@
-// initAutocomplete function with a search bar that marks the users destination and chosen place.
+// initAutocomplete function that is called from a source link in the HTML that runs the map
 function initAutocomplete() {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: { lat: 46.619261, lng: -33.134766 },
@@ -50,6 +50,7 @@ function initAutocomplete() {
     ]
   });
 
+  // Variables that are called in the code below
 
   var markers = [];
 
@@ -67,6 +68,7 @@ function initAutocomplete() {
   };
 
   // Button that resets the users input in the map to start again
+  
   document.getElementById("resetSearch").onclick = function() {
     clearResults();
     clearMarkers();
@@ -82,17 +84,23 @@ function initAutocomplete() {
     map.setCenter(clearResult.center);
     place = "";
   };
-
+  
+  // A function that calls the start your search button and scrolls to the map
+  
   document.getElementById('scrollToMap').onclick = function() {
     var scroll = document.getElementById("map-Scroll");
     scroll.scrollIntoView();
   };
 
+  // Hides these ID's unless they have been called or selected 
+  
   $('#place-photo-spot').hide();
   $('#place-photo-spot2').hide();
   $('#place-photo-spot3').hide();
   $('#listing').hide();
   $('#hr').hide();
+  
+  // A call to the autocomplete with only cities as a type to select
 
   autocomplete = new google.maps.places.Autocomplete(
     (
@@ -101,13 +109,19 @@ function initAutocomplete() {
     });
   places = new google.maps.places.PlacesService(map);
 
+  // A Listener that listens from the call of place changed and onPlaceChanged function
+  
   autocomplete.addListener('place_changed', onPlaceChanged);
   document.getElementById('category').addEventListener('change', onPlaceChanged);
 
+  // Creates an infowidow that pops up
+  
   infoWindow = new google.maps.InfoWindow({
     content: document.getElementById('info-content')
   });
 
+  // This is a if/else statement that calls on the getPlace callback returning accommondation, bars/restaurants and tourist attractions only
+  
   function onPlaceChanged() {
     var place = autocomplete.getPlace();
 
@@ -158,7 +172,8 @@ function initAutocomplete() {
   var bounds = new google.maps.LatLngBounds();
 
 
-
+  // This is a function that does a nearby search of the location from the onPlaceChange function
+  
   function searchNearby(search) {
     places.nearbySearch(search, function(results, status) {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -186,6 +201,8 @@ function initAutocomplete() {
     });
   }
 
+  // function that clears all markers from the map 
+  
   function clearMarkers() {
     for (var i = 0; i < markers.length; i++) {
       if (markers[i]) {
@@ -195,12 +212,16 @@ function initAutocomplete() {
     markers = [];
   }
 
+  // function that drops the markers onto the map
+  
   function dropMarker(i) {
     return function() {
       markers[i].setMap(map);
     };
   }
 
+  // A function that returns the results to a created table
+  
   function addResult(result, i) {
     var results = document.getElementById('searchResult');
     var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
@@ -248,6 +269,8 @@ function initAutocomplete() {
 
 
 
+  // function that clears all of the results 
+  
   function clearResults() {
     var results = document.getElementById('searchResult');
     while (results.childNodes[0]) {
@@ -255,6 +278,8 @@ function initAutocomplete() {
     }
   }
 
+  // function that shows the infoWindow
+  
   function showInfoWindow() {
     var marker = this;
     places.getDetails({ placeId: marker.placeResult.place_id },
@@ -267,6 +292,8 @@ function initAutocomplete() {
       });
   }
 
+  // function built to hold all of the infoWindow content shown
+  
   function buildIWContent(place) {
     $('#place-photo-spot').show();
     $('#place-photo-spot2').show();

@@ -5,6 +5,8 @@ body {
     padding: 0;
 }
 
+/*  --------------------  Styling for background image  --------------------  */
+
 .background-image {
     height: 100vh;
     background: url(../images/holidayBackground.jpg) no-repeat center center fixed;
@@ -26,6 +28,8 @@ body {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+/* -------------------- Styling for navbar------------------------- */
+
 .navbar {
     position: absolute;
     z-index: 1;
@@ -42,11 +46,14 @@ body {
     color: #aadaff;
 }
 
+/* -------------------------- Carousel Styling ----------------------------- */
 
 .container-full {
     padding-right: 0;
     padding-left: 0;
 }
+
+/*  -------------  Map and input control styling for google maps/places  ---------------  */
 
 .map-header {
     font-family: "Rochester", sans-serif;
@@ -114,6 +121,8 @@ body {
     border-color: #4d90fe;
 }
 
+/* -------------------- Results table styling with hr and heading -------------------- */
+
 table {
     font-size: 12px;
 }
@@ -145,10 +154,18 @@ table {
     overflow-x: hidden;
 }
 
+#resultsTable {
+    border-collapse: collapse;
+    width: inherit;
+}
+
+/* ---------- Image response styling --------- */
+
 .result-image {
     width: 100%;
 }
 
+/* -----------------------InfoWidow styling for place information ------------------- */
 
 .placeIcon {
     width: 20px;
@@ -161,10 +178,6 @@ table {
     height: 24px;
 }
 
-#resultsTable {
-    border-collapse: collapse;
-    width: inherit;
-}
 
 #rating {
     font-size: 13px;
@@ -187,6 +200,8 @@ table {
 #iw-rating {
     color: #007bff;
 }
+
+/* --------------------------- Footer styling ------------------------------- */ 
 
 .footer-details {
     font-family: "Rochester", sans-serif;
