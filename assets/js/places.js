@@ -61,7 +61,9 @@ function initAutocomplete() {
   var places, infoWindow;
 
   var autocomplete;
-
+  
+  var autocompleteNav;
+  
   var clearResult = {
     center: { lat: 46.619261, lng: -33.134766 },
     zoom: 3
@@ -74,6 +76,7 @@ function initAutocomplete() {
     clearMarkers();
     $('#category')[0].selectedIndex = 0;
     $("#searchMapInput").val("");
+    $("#searchMapInputNav").val("");
     $('#searchResult').html("");
     $('#listing').hide();
     $('#hr').hide();
@@ -102,6 +105,13 @@ function initAutocomplete() {
   
   // A call to the autocomplete with only cities as a type to select
 
+  autocompleteNav = new google.maps.places.Autocomplete(
+    (
+      document.getElementById('searchMapInputNav')), {
+      types: ['(cities)']
+    });
+    
+
   autocomplete = new google.maps.places.Autocomplete(
     (
       document.getElementById('searchMapInput')), {
@@ -110,7 +120,7 @@ function initAutocomplete() {
   places = new google.maps.places.PlacesService(map);
 
   // A Listener that listens from the call of place changed and onPlaceChanged function
-  
+  autocompleteNav.addListener('place_changed', onPlaceChanged);
   autocomplete.addListener('place_changed', onPlaceChanged);
   document.getElementById('category').addEventListener('change', onPlaceChanged);
 
@@ -124,6 +134,7 @@ function initAutocomplete() {
   
   function onPlaceChanged() {
     var place = autocomplete.getPlace();
+    place = autocompleteNav.getPlace();
 
     if ($("#accommodation").is(':selected')) {
       if (place.geometry) {
