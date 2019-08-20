@@ -121,6 +121,10 @@ body {
     border-color: #4d90fe;
 }
 
+#scrollToMapSearch {
+    margin-top: 5px;
+}
+
 /* -------------------- Results table styling with hr and heading -------------------- */
 
 table {
