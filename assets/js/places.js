@@ -59,10 +59,9 @@ function initAutocomplete() {
   var hostnameRegexp = new RegExp('^https?://.+?/');
 
   var places, infoWindow;
-
-  var autocomplete;
   
-  var autocompleteNav;
+  var autocomplete;
+
   
   var clearResult = {
     center: { lat: 46.619261, lng: -33.134766 },
@@ -70,13 +69,12 @@ function initAutocomplete() {
   };
 
   // Button that resets the users input in the map to start again
-  
+
   document.getElementById("resetSearch").onclick = function() {
     clearResults();
     clearMarkers();
     $('#category')[0].selectedIndex = 0;
     $("#searchMapInput").val("");
-    $("#searchMapInputNav").val("");
     $('#searchResult').html("");
     $('#listing').hide();
     $('#hr').hide();
@@ -87,31 +85,26 @@ function initAutocomplete() {
     map.setCenter(clearResult.center);
     place = "";
   };
-  
+
   // A function that calls the start your search button and scrolls to the map
-  
+
   document.getElementById('scrollToMap').onclick = function() {
     var scroll = document.getElementById("map-Scroll");
     scroll.scrollIntoView();
   };
 
-  // Hides these ID's unless they have been called or selected 
   
+  // Hides these ID's unless they have been called or selected 
+
   $('#place-photo-spot').hide();
   $('#place-photo-spot2').hide();
   $('#place-photo-spot3').hide();
   $('#listing').hide();
   $('#hr').hide();
-  
+
   // A call to the autocomplete with only cities as a type to select
 
-  autocompleteNav = new google.maps.places.Autocomplete(
-    (
-      document.getElementById('searchMapInputNav')), {
-      types: ['(cities)']
-    });
-    
-
+  
   autocomplete = new google.maps.places.Autocomplete(
     (
       document.getElementById('searchMapInput')), {
@@ -120,12 +113,11 @@ function initAutocomplete() {
   places = new google.maps.places.PlacesService(map);
 
   // A Listener that listens from the call of place changed and onPlaceChanged function
-  autocompleteNav.addListener('place_changed', onPlaceChanged);
   autocomplete.addListener('place_changed', onPlaceChanged);
   document.getElementById('category').addEventListener('change', onPlaceChanged);
 
   // Creates an infowidow that pops up
-  
+
   infoWindow = new google.maps.InfoWindow({
     content: document.getElementById('info-content')
   });
@@ -134,8 +126,7 @@ function initAutocomplete() {
   
   function onPlaceChanged() {
     var place = autocomplete.getPlace();
-    place = autocompleteNav.getPlace();
-
+   
     if ($("#accommodation").is(':selected')) {
       if (place.geometry) {
         map.panTo(place.geometry.location);
@@ -148,6 +139,7 @@ function initAutocomplete() {
       }
       else {
         $('#searchMapInput').attr("placeholder", "Enter a location");
+        $('#searchMapInputNav').attr("placeholder", "Where to?");
       }
     }
     else if ($("#bars").is(':selected')) {
@@ -162,6 +154,7 @@ function initAutocomplete() {
       }
       else {
         $('#searchMapInput').attr("placeholder", "Enter a location");
+        $('#searchMapInputNav').attr("placeholder", "Where to?");
       }
     }
     else if ($("#tourist").is(':selected')) {
@@ -176,6 +169,7 @@ function initAutocomplete() {
       }
       else {
         $('#searchMapInput').attr("placeholder", "Enter a location");
+        $('#searchMapInputNav').attr("placeholder", "Where to?");
       }
     }
   }
@@ -184,7 +178,7 @@ function initAutocomplete() {
 
 
   // This is a function that does a nearby search of the location from the onPlaceChange function
-  
+
   function searchNearby(search) {
     places.nearbySearch(search, function(results, status) {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -213,7 +207,7 @@ function initAutocomplete() {
   }
 
   // function that clears all markers from the map 
-  
+
   function clearMarkers() {
     for (var i = 0; i < markers.length; i++) {
       if (markers[i]) {
@@ -224,7 +218,7 @@ function initAutocomplete() {
   }
 
   // function that drops the markers onto the map
-  
+
   function dropMarker(i) {
     return function() {
       markers[i].setMap(map);
@@ -232,7 +226,7 @@ function initAutocomplete() {
   }
 
   // A function that returns the results to a created table
-  
+
   function addResult(result, i) {
     var results = document.getElementById('searchResult');
     var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
@@ -281,7 +275,7 @@ function initAutocomplete() {
 
 
   // function that clears all of the results 
-  
+
   function clearResults() {
     var results = document.getElementById('searchResult');
     while (results.childNodes[0]) {
@@ -290,7 +284,7 @@ function initAutocomplete() {
   }
 
   // function that shows the infoWindow
-  
+
   function showInfoWindow() {
     var marker = this;
     places.getDetails({ placeId: marker.placeResult.place_id },
@@ -304,7 +298,7 @@ function initAutocomplete() {
   }
 
   // function built to hold all of the infoWindow content shown
-  
+
   function buildIWContent(place) {
     $('#place-photo-spot').show();
     $('#place-photo-spot2').show();
