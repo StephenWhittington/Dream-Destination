@@ -220,3 +220,11 @@ footer {
 p {
     font-size: 20px;
 }
+
+/* --------------------------- Media Queries ------------------------------- */ 
+
+@media (max-width: 576px) {
+   .dont-show {
+       display: none;
+   }
+}
