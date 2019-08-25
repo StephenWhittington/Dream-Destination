@@ -150,7 +150,7 @@ table {
 #listing {
     position: none;
     width: inherit;
-    height: 470px;
+    height: 437px;
     overflow: auto;
     left: 442px;
     top: 0px;
@@ -227,4 +227,10 @@ p {
    .dont-show {
        display: none;
    }
+}
+
+@media (min-width: 768px) {
+    .hr1 {
+        display: none;
+    }
 }

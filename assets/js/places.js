@@ -96,6 +96,7 @@ function initAutocomplete() {
   document.getElementById('scrollToMapSearch').onclick = function() {
     var scrollSearch = document.getElementById("backToSearch");
     scrollSearch.scrollIntoView();
+    $("#searchMapInput").val("");
   };
 
   
