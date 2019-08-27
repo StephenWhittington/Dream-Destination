@@ -59,10 +59,10 @@ function initAutocomplete() {
   var hostnameRegexp = new RegExp('^https?://.+?/');
 
   var places, infoWindow;
-  
+
   var autocomplete;
 
-  
+
   var clearResult = {
     center: { lat: 46.619261, lng: -33.134766 },
     zoom: 3
@@ -78,9 +78,17 @@ function initAutocomplete() {
     $('#searchResult').html("");
     $('#listing').hide();
     $('#hr').hide();
+    $('#namePlace').hide();
     $('#place-photo-spot').hide();
     $('#place-photo-spot2').hide();
     $('#place-photo-spot3').hide();
+    $('#place-photo-spot4').hide();
+    $('#place-photo-spot5').hide();
+    $('#place-photo-spot6').hide();
+    $('#place-photo-spot7').hide();
+    $('#place-photo-spot8').hide();
+    $('#place-photo-spot9').hide();
+    $('#place-photo-spot10').hide();
     map.setZoom(clearResult.zoom);
     map.setCenter(clearResult.center);
     place = "";
@@ -92,25 +100,32 @@ function initAutocomplete() {
     var scroll = document.getElementById("map-Scroll");
     scroll.scrollIntoView();
   };
-  
+
   document.getElementById('scrollToMapSearch').onclick = function() {
     var scrollSearch = document.getElementById("backToSearch");
     scrollSearch.scrollIntoView();
     $("#searchMapInput").val("");
   };
 
-  
+
   // Hides these ID's unless they have been called or selected 
 
   $('#place-photo-spot').hide();
   $('#place-photo-spot2').hide();
   $('#place-photo-spot3').hide();
+  $('#place-photo-spot4').hide();
+  $('#place-photo-spot5').hide();
+  $('#place-photo-spot6').hide();
+  $('#place-photo-spot7').hide();
+  $('#place-photo-spot8').hide();
+  $('#place-photo-spot9').hide();
+  $('#place-photo-spot10').hide();
   $('#listing').hide();
   $('#hr').hide();
 
   // A call to the autocomplete with only cities as a type to select
 
-  
+
   autocomplete = new google.maps.places.Autocomplete(
     (
       document.getElementById('searchMapInput')), {
@@ -129,10 +144,10 @@ function initAutocomplete() {
   });
 
   // This is a if/else statement that calls on the getPlace callback returning accommondation, bars/restaurants and tourist attractions only
-  
+
   function onPlaceChanged() {
     var place = autocomplete.getPlace();
-   
+
     if ($("#accommodation").is(':selected')) {
       if (place.geometry) {
         map.panTo(place.geometry.location);
@@ -309,6 +324,13 @@ function initAutocomplete() {
     $('#place-photo-spot').show();
     $('#place-photo-spot2').show();
     $('#place-photo-spot3').show();
+    $('#place-photo-spot4').show();
+    $('#place-photo-spot5').show();
+    $('#place-photo-spot6').show();
+    $('#place-photo-spot7').show();
+    $('#place-photo-spot8').show();
+    $('#place-photo-spot9').show();
+    $('#place-photo-spot10').show();
 
     document.getElementById('iw-icon').innerHTML = '<img class="hotelIcon" ' +
       'src="' + place.icon + '"/>';
@@ -359,20 +381,54 @@ function initAutocomplete() {
     }
 
     if (place.photos) {
-      console.log(place.photos);
-      var photoUrl = place.photos[0].getUrl({ maxWidth: 1200, maxHeight: 750 });
-      var photoUrl2 = place.photos[1].getUrl({ maxWidth: 1200, maxHeight: 750 });
-      var photoUrl3 = place.photos[2].getUrl({ maxWidth: 1200, maxHeight: 750 });
+      for (let i = 0; i < place.photos.length; i++)
+        console.log(place.photos);
+      var photoUrl = place.photos[0].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+      var photoUrl2 = place.photos[1].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+      var photoUrl3 = place.photos[2].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+      var photoUrl4 = place.photos[3].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+      var photoUrl5 = place.photos[4].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+      var photoUrl6 = place.photos[5].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+      var photoUrl7 = place.photos[6].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+      var photoUrl8 = place.photos[7].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+      var photoUrl9 = place.photos[8].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+      var photoUrl10 = place.photos[9].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+
       document.getElementById('place-photo-spot').src = photoUrl;
       document.getElementById('place-photo-spot2').src = photoUrl2;
       document.getElementById('place-photo-spot3').src = photoUrl3;
+      document.getElementById('place-photo-spot4').src = photoUrl4;
+      document.getElementById('place-photo-spot5').src = photoUrl5;
+      document.getElementById('place-photo-spot6').src = photoUrl6;
+      document.getElementById('place-photo-spot7').src = photoUrl7;
+      document.getElementById('place-photo-spot8').src = photoUrl8;
+      document.getElementById('place-photo-spot9').src = photoUrl9;
+      document.getElementById('place-photo-spot10').src = photoUrl10;
+      $('#namePlace').show();
     }
     else {
       document.getElementById('place-photo-spot').style.display = 'none';
       document.getElementById('place-photo-spot2').style.display = 'none';
       document.getElementById('place-photo-spot3').style.display = 'none';
+      document.getElementById('place-photo-spot4').style.display = 'none';
+      document.getElementById('place-photo-spot5').style.display = 'none';
+      document.getElementById('place-photo-spot6').style.display = 'none';
+      document.getElementById('place-photo-spot7').style.display = 'none';
+      document.getElementById('place-photo-spot8').style.display = 'none';
+      document.getElementById('place-photo-spot9').style.display = 'none';
+      document.getElementById('place-photo-spot10').style.display = 'none';
+      document.getElementById('namePlace').style.display = 'none';
+    }
+
+    if (place.name) {
+      document.getElementById('namePlace').innerHTML = '<b><a href="' + place.url +
+        '">' + place.name + '</a></b>';
+    }
+    else {
+
     }
   }
+  
 
   if (places.geometry) {
     bounds.union(places.geometry);
@@ -383,3 +439,4 @@ function initAutocomplete() {
   map.fitBounds(bounds);
 
 }
+

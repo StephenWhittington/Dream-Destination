@@ -167,6 +167,12 @@ table {
 
 .result-image {
     width: 100%;
+    overflow: hidden;
+}
+
+#namePlace a {
+    font-family: Roboto;
+    color: white;
 }
 
 /* -----------------------InfoWidow styling for place information ------------------- */
@@ -205,7 +211,7 @@ table {
     color: #007bff;
 }
 
-/* --------------------------- Footer styling ------------------------------- */ 
+/* --------------------------- Footer styling ------------------------------- */
 
 .footer-details {
     font-family: "Rochester", sans-serif;
@@ -221,12 +227,12 @@ p {
     font-size: 20px;
 }
 
-/* --------------------------- Media Queries ------------------------------- */ 
+/* --------------------------- Media Queries ------------------------------- */
 
 @media (max-width: 576px) {
-   .dont-show {
-       display: none;
-   }
+    .dont-show {
+        display: none;
+    }
 }
 
 @media (min-width: 768px) {

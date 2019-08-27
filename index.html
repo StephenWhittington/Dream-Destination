@@ -8,6 +8,7 @@
     <title>Dream Destination</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 </head>
 
@@ -18,7 +19,7 @@
         <!-- Picture background with opaque-overlay -->
         <div class="opaque-overlay">&nbsp;</div>
 
-        <!-- Navbar with the name of the webpage -->
+        <!-- Navbar search with the name of the webpage -->
         <nav class="navbar col-md-12" id="backToSearch">
             <div class="mx-auto text-center">
                 <a class="navbar-brand" href="index.html">Dream Destination</a>
@@ -47,7 +48,6 @@
                         <img class="d-block w-100" src="assets/images/hongKong.jpg" alt="First Slide">
                         <div class="carousel-caption">
                             <h3>HongKong</h3>
-                            <p></p>
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -90,7 +90,7 @@
             </div>
         </section>
 
-        <!-- section with Google Maps/Places API input with picture results under the map -->
+        <!-- section with Google Maps/Places API input with picture and results under the map -->
         <section class="container">
             <br>
             <h1 class="map-header text-center" id="map-Scroll">Find Your Dream Location</h1>
@@ -100,16 +100,17 @@
                 </div>
                 <div class="col-md-4 text-center">
                     <select class="select-controls" id="category">
-                    <option id="tourist" value="tourist" selected>Tourist Attractions</option>
-                    <option value="">Select One</option>
-                    <option id="accommodation" value="accommodation">Accommodation</option>
-                    <option id="bars" value="bars">Bars/Restaurants</option>
+                <option id="tourist" value="tourist" selected>Tourist Attractions</option>
+                <option value="">Select One</option>
+                <option id="accommodation" value="accommodation">Accommodation</option>
+                <option id="bars" value="bars">Bars/Restaurants</option>
             </select>
                 </div>
                 <div class="reset-button col-md-4 text-center">
                     <button id="resetSearch" class="btn btn-primary" type="button"><strong>Reset</strong><i class="fa fa-reply" aria-hidden="true"></i></button>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-8" id="map"></div>
                 <div class="col-md-4">
@@ -153,21 +154,57 @@
             </div>
             <br>
             <div class="row">
-                <div class="col-12 col-md-4">
+                <div class="col-12">
+                    <div id="namePlace"></div>
                     <img id="place-photo-spot" src="" class="result-image"></img>
-                </div>
-                <div class="col-12 col-md-4">
-                    <img id="place-photo-spot2" src="" class="result-image"></img>
-                </div>
-                <div class="col=12 col-md-4">
-                    <img id="place-photo-spot3" src="" class="result-image"></img>
                 </div>
             </div>
         </section>
-
-        <!-- section with a table made for results from the map -->
+        <br>
+        <!-- Section with extra pictures of places with fancybox -->
         <section class="container">
-
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <a data-fancybox="gallery" href="">
+                    <img id="place-photo-spot2" src="" class="result-image" alt="Photo of Place"></a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 ">
+                    <a data-fancybox="gallery" href="">
+                    <img id="place-photo-spot3" src="" class="result-image" alt="Photo of Place"></a>
+                </div>
+                <div class="col-xs-12 col-md-6  ">
+                    <a data-fancybox="gallery" href="">
+                    <img id="place-photo-spot4" src="" class="result-image" alt="Photo of Place"></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 ">
+                    <a data-fancybox="gallery" href="">
+                    <img id="place-photo-spot5" src="" class="result-image" alt="Photo of Place"></a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 ">
+                    <a data-fancybox="gallery" href="">
+                    <img id="place-photo-spot6" src="" class="result-image" alt="Photo of Place"></a>
+                </div>
+                <div class="col-xs-12 col-md-6  ">
+                    <a data-fancybox="gallery" href="">
+                    <img id="place-photo-spot7" src="" class="result-image" alt="Photo of Place"></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 ">
+                    <a data-fancybox="gallery" href="">
+                    <img id="place-photo-spot8" src="" class="result-image" alt="Photo of Place"></a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 ">
+                    <a data-fancybox="gallery" href="">
+                    <img id="place-photo-spot9" src="" class="result-image" alt="Photo of Place"></a>
+                </div>
+                <div class="col-xs-12 col-md-6  ">
+                    <a data-fancybox="gallery" href="">
+                    <img id="place-photo-spot10" src="" class="result-image" alt="Photo of Place"></a>
+                </div>
+            </div>
         </section>
 
         <!-- Footer showing about and coptwrite -->
@@ -191,6 +228,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="assets/js/places.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCToTw2ZDwtlRnWtRgG6Cv6kYVGeyyVWvU&callback=initMap&libraries=places&callback=initAutocomplete"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
 </body>
 
 </html>
