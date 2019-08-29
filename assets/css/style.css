@@ -57,7 +57,7 @@ body {
 
 .map-header {
     font-family: "Rochester", sans-serif;
-    color: white;
+    color: black;
 }
 
 .reset-button {
@@ -135,7 +135,7 @@ table {
 .header {
     margin-top: 5px;
     font-family: "Rochester", sans-serif;
-    color: white;
+    color: black;
 }
 
 .hr1 {
@@ -177,7 +177,7 @@ table {
 
 #namePlace a {
     font-family: Roboto;
-    color: white;
+    color: black;
 }
 
 /* -----------------------InfoWidow styling for place information ------------------- */
