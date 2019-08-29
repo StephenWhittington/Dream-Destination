@@ -156,8 +156,7 @@ function initAutocomplete() {
         searchNearby(search);
       }
       else {
-        $('#searchMapInput').attr("placeholder", "Enter a location");
-        $('#searchMapInputNav').attr("placeholder", "Where to?");
+        $('#searchMapInput').attr("placeholder", "Where to?");
       }
     }
     else if ($("#bars").is(':selected')) {
@@ -171,8 +170,7 @@ function initAutocomplete() {
         searchNearby(search);
       }
       else {
-        $('#searchMapInput').attr("placeholder", "Enter a location");
-        $('#searchMapInputNav').attr("placeholder", "Where to?");
+        $('#searchMapInput').attr("placeholder", "Where to?");
       }
     }
     else if ($("#tourist").is(':selected')) {
@@ -186,8 +184,7 @@ function initAutocomplete() {
         searchNearby(search);
       }
       else {
-        $('#searchMapInput').attr("placeholder", "Enter a location");
-        $('#searchMapInputNav').attr("placeholder", "Where to?");
+        $('#searchMapInput').attr("placeholder", "Where to?");
       }
     }
   }
@@ -220,6 +217,7 @@ function initAutocomplete() {
           setTimeout(dropMarker(i), i * 100);
           addResult(results[i], i);
         }
+        window.scrollTo(0, 1000);
       }
     });
   }
@@ -318,6 +316,7 @@ function initAutocomplete() {
   // function built to hold all of the infoWindow content shown
 
   function buildIWContent(place) {
+    console.log(place);
     $('#place-photo-spot').show();
     $('#place-photo-spot2').show();
     $('#place-photo-spot3').show();
@@ -325,7 +324,6 @@ function initAutocomplete() {
     $('#place-photo-spot5').show();
     $('#place-photo-spot6').show();
     $('#place-photo-spot7').show();
-    $('#hideFancybox').show();
 
     document.getElementById('iw-icon').innerHTML = '<img class="hotelIcon" ' +
       'src="' + place.icon + '"/>';
@@ -394,6 +392,7 @@ function initAutocomplete() {
       document.getElementById('place-photo-spot6').src = photoUrl6;
       document.getElementById('place-photo-spot7').src = photoUrl7;
       $('#namePlace').show();
+      $('#hideFancybox').show();
     }
     else {
       document.getElementById('place-photo-spot').style.display = 'none';
@@ -404,6 +403,7 @@ function initAutocomplete() {
       document.getElementById('place-photo-spot6').style.display = 'none';
       document.getElementById('place-photo-spot7').style.display = 'none';
       document.getElementById('namePlace').style.display = 'none';
+      document.getElementById('hideFancybox').style.display = 'none';
     }
 
     if (place.name) {
