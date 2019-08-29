@@ -86,7 +86,7 @@ function initAutocomplete() {
     $('#place-photo-spot5').hide();
     $('#place-photo-spot6').hide();
     $('#place-photo-spot7').hide();
-     $('#hideFancybox').hide();
+    $('#hideFancybox').hide();
     map.setZoom(clearResult.zoom);
     map.setCenter(clearResult.center);
     place = "";
@@ -118,8 +118,8 @@ function initAutocomplete() {
   $('#listing').hide();
   $('#hr').hide();
   $('#hideFancybox').hide();
-  
-  
+
+
   // A call to the autocomplete with only cities as a type to select
 
 
@@ -414,7 +414,7 @@ function initAutocomplete() {
 
     }
   }
-  
+
 
   if (places.geometry) {
     bounds.union(places.geometry);
@@ -425,4 +425,3 @@ function initAutocomplete() {
   map.fitBounds(bounds);
 
 }
-

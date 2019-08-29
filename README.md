@@ -49,7 +49,7 @@ of the place they have selected under the map a maximum of three pictures are sh
 
 * **Carousel Pictures** - A five picture carousel of recommended cities that the user can navigate through by clicking or waiting.
 
-* **Start Your Search Button** - Allows desktop users by clicking to scroll to the map to start their search.
+* **Go Button** - Allows desktop users by clicking to scroll to the map to start their search.
 
 * **Autocomplete Search Bar** - Allows the user to search for specific cities and locations quicker, as suggestions
 appear in the dropdown based on the information they have entered. When the user has typed enough into the search bar the city or location
@@ -171,3 +171,4 @@ so when the user clicks on the pictures after they are scrolled through they dis
 it only shows the first picture with the place name link.
 
     * I am curently trying to find a way to fix this bug/problem.
+    
