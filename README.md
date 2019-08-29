@@ -27,7 +27,7 @@ helps them achieve that goal.
 
 #### **list of user stories.**
 
-* **Select a destination city**: The user clicks on the 'enter a location' autocomplete search bar and starts typing
+* **Select a destination city**: The user clicks on the 'Where to?' autocomplete search bar and starts typing
  a letter, the autocomplete result will return suggestions in a dropdown. They can either type a full name of a location
 or just select from the drop down menue when they have typed in enough information for it to appear in the dropdown.
 
@@ -66,14 +66,16 @@ marker results.
 
 * **Result List** - Allows the user to click one of the results which then scrolls up to find the infowindow opened.
 
-* **Pictures Of Places** - When the user has selected a result either from the map markers or result list a maximum of three
-pictures are shown of the relevant place under the map.
+* **Pictures Of Places** - When the user has selected a result either from the map markers or result list one picture is displayed wth the place
+* name and link, then underneath 6 more pictures of the place are shown with fancybox to scroll through them.
 
 ## Features Left To Implement 
 
 * Adding city result pictures under the map along with information on them.
 
 * More search options in catagory dropdown.
+
+* Adding an option for the user to select packages from sponsors.
 
 # Technologies Used
 
@@ -106,6 +108,10 @@ pictures are shown of the relevant place under the map.
 * [Google Maps and Places API](https://cloud.google.com/maps-platform/)
     
     * The website uses the Google Maps API and the Google Places API to allow users to interact and search using a map.
+
+* [Fancybox3](https://fancyapps.com/fancybox/3/)
+    
+    * Recommended by my Mentor, The webpage uses fancybox to help images stand out from when the user selects a place from the map.
 
 # Testing 
 
@@ -159,3 +165,9 @@ test my page to find any bugs or problems which helped with noticing different i
 webpage application works on mobile,tablet and desktop screen sizes.
 
 ## Bugs And Problems
+
+I have discovered a few problems with my page, I am using fancybox and i cannot target the photos from the google places api
+so when the user clicks on the pictures after they are scrolled through they disappear, and then when you select another place
+it only shows the first picture with the place name link.
+
+    * I am curently trying to find a way to fix this bug/problem.

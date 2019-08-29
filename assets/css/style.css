@@ -163,11 +163,15 @@ table {
     width: inherit;
 }
 
-/* ---------- Image response styling --------- */
+/* ------------------------------- Image response styling -------------------------------- */
 
 .result-image {
     width: 100%;
     overflow: hidden;
+}
+
+.photoStyle {
+    padding: 10px;
 }
 
 #namePlace a {
@@ -214,7 +218,7 @@ table {
 /* --------------------------- Footer styling ------------------------------- */
 
 .footer-details {
-    font-family: "Rochester", sans-serif;
+    font-family: "Roboto", sans-serif;
     color: white;
 }
 

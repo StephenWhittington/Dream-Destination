@@ -86,9 +86,7 @@ function initAutocomplete() {
     $('#place-photo-spot5').hide();
     $('#place-photo-spot6').hide();
     $('#place-photo-spot7').hide();
-    $('#place-photo-spot8').hide();
-    $('#place-photo-spot9').hide();
-    $('#place-photo-spot10').hide();
+     $('#hideFancybox').hide();
     map.setZoom(clearResult.zoom);
     map.setCenter(clearResult.center);
     place = "";
@@ -117,12 +115,11 @@ function initAutocomplete() {
   $('#place-photo-spot5').hide();
   $('#place-photo-spot6').hide();
   $('#place-photo-spot7').hide();
-  $('#place-photo-spot8').hide();
-  $('#place-photo-spot9').hide();
-  $('#place-photo-spot10').hide();
   $('#listing').hide();
   $('#hr').hide();
-
+  $('#hideFancybox').hide();
+  
+  
   // A call to the autocomplete with only cities as a type to select
 
 
@@ -328,9 +325,7 @@ function initAutocomplete() {
     $('#place-photo-spot5').show();
     $('#place-photo-spot6').show();
     $('#place-photo-spot7').show();
-    $('#place-photo-spot8').show();
-    $('#place-photo-spot9').show();
-    $('#place-photo-spot10').show();
+    $('#hideFancybox').show();
 
     document.getElementById('iw-icon').innerHTML = '<img class="hotelIcon" ' +
       'src="' + place.icon + '"/>';
@@ -390,9 +385,6 @@ function initAutocomplete() {
       var photoUrl5 = place.photos[4].getUrl({ maxWidth: 1000, maxHeight: 1250 });
       var photoUrl6 = place.photos[5].getUrl({ maxWidth: 1000, maxHeight: 1250 });
       var photoUrl7 = place.photos[6].getUrl({ maxWidth: 1000, maxHeight: 1250 });
-      var photoUrl8 = place.photos[7].getUrl({ maxWidth: 1000, maxHeight: 1250 });
-      var photoUrl9 = place.photos[8].getUrl({ maxWidth: 1000, maxHeight: 1250 });
-      var photoUrl10 = place.photos[9].getUrl({ maxWidth: 1000, maxHeight: 1250 });
 
       document.getElementById('place-photo-spot').src = photoUrl;
       document.getElementById('place-photo-spot2').src = photoUrl2;
@@ -401,9 +393,6 @@ function initAutocomplete() {
       document.getElementById('place-photo-spot5').src = photoUrl5;
       document.getElementById('place-photo-spot6').src = photoUrl6;
       document.getElementById('place-photo-spot7').src = photoUrl7;
-      document.getElementById('place-photo-spot8').src = photoUrl8;
-      document.getElementById('place-photo-spot9').src = photoUrl9;
-      document.getElementById('place-photo-spot10').src = photoUrl10;
       $('#namePlace').show();
     }
     else {
@@ -414,9 +403,6 @@ function initAutocomplete() {
       document.getElementById('place-photo-spot5').style.display = 'none';
       document.getElementById('place-photo-spot6').style.display = 'none';
       document.getElementById('place-photo-spot7').style.display = 'none';
-      document.getElementById('place-photo-spot8').style.display = 'none';
-      document.getElementById('place-photo-spot9').style.display = 'none';
-      document.getElementById('place-photo-spot10').style.display = 'none';
       document.getElementById('namePlace').style.display = 'none';
     }
 
