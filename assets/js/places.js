@@ -78,7 +78,7 @@ function initAutocomplete() {
     $('#searchResult').html("");
     $('#listing').hide();
     $('#hr').hide();
-    $('#namePlace').hide();
+    $('#place-info').hide();
     $('#place-photo-spot').hide();
     $('#place-photo-spot2').hide();
     $('#place-photo-spot3').hide();
@@ -391,7 +391,7 @@ function initAutocomplete() {
       document.getElementById('place-photo-spot5').src = photoUrl5;
       document.getElementById('place-photo-spot6').src = photoUrl6;
       document.getElementById('place-photo-spot7').src = photoUrl7;
-      $('#namePlace').show();
+      $('#place-info').show();
       $('#hideFancybox').show();
     }
     else {
@@ -402,16 +402,20 @@ function initAutocomplete() {
       document.getElementById('place-photo-spot5').style.display = 'none';
       document.getElementById('place-photo-spot6').style.display = 'none';
       document.getElementById('place-photo-spot7').style.display = 'none';
-      document.getElementById('namePlace').style.display = 'none';
+      document.getElementById('place-info').style.display = 'none';
       document.getElementById('hideFancybox').style.display = 'none';
     }
 
-    if (place.name) {
-      document.getElementById('namePlace').innerHTML = '<b><a href="' + place.url +
-        '">' + place.name + '</a></b>';
-    }
-    else {
+    insertPlaceInfo(place);
 
+   
+    function insertPlaceInfo(place) {
+      let markup = '<div>' +
+      '<h1><a href="' + place.url + '">' + place.name + '</a></h1>' + '<h2>' + place.vicinity + '</h2>'
+      + '<h3>'  + place.formatted_phone_number + '</h3>' + '<p>' + place.reviews + '</p></div>';
+    
+
+      document.getElementById('place-info').innerHTML = markup;
     }
   }
 
