@@ -58,6 +58,7 @@ body {
 .map-header {
     font-family: "Rochester", sans-serif;
     color: black;
+    font-size: 80px;
 }
 
 .reset-button {
@@ -219,17 +220,18 @@ table {
 /* --------------------------- Footer styling ------------------------------- */
 
 .footer-details {
-    font-family: "Roboto", sans-serif;
+    font-family: "Rochester", sans-serif;
     color: white;
 }
 
 footer {
-    background-color: #007bff;
+    background-color: #000000;
     margin-top: 20px;
 }
 
 p {
     font-size: 15px;
+    font-family: "Roboto", sans-serif;
 }
 
 /* --------------------------- Media Queries ------------------------------- */
