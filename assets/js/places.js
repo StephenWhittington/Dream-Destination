@@ -373,9 +373,13 @@ function initAutocomplete() {
       document.getElementById('iw-website-row').style.display = 'none';
     }
 
+  
+  
     if (place.photos) {
       for (let i = 0; i < place.photos.length; i++)
-        console.log(place.photos);
+      
+     
+      // console.log(place.photos);
       var photoUrl = place.photos[0].getUrl({ maxWidth: 1000, maxHeight: 1250 });
       var photoUrl2 = place.photos[1].getUrl({ maxWidth: 1000, maxHeight: 1250 });
       var photoUrl3 = place.photos[2].getUrl({ maxWidth: 1000, maxHeight: 1250 });
@@ -407,12 +411,12 @@ function initAutocomplete() {
     }
 
     insertPlaceInfo(place);
-
-   
+    
+    
     function insertPlaceInfo(place) {
       let markup = '<div>' +
       '<h1><a href="' + place.url + '">' + place.name + '</a></h1>' + '<h2>' + place.vicinity + '</h2>'
-      + '<h3>'  + place.formatted_phone_number + '</h3>' + '<p>' + place.reviews + '</p></div>';
+      + '<h3>'  + place.formatted_phone_number + '</h3>' + '<h3>' + place.website + '</h3></div>';
     
 
       document.getElementById('place-info').innerHTML = markup;
