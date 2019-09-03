@@ -373,28 +373,44 @@ function initAutocomplete() {
       document.getElementById('iw-website-row').style.display = 'none';
     }
 
-  
-  
+
+
     if (place.photos) {
       for (let i = 0; i < place.photos.length; i++)
-      
-     
-      // console.log(place.photos);
-      var photoUrl = place.photos[0].getUrl({ maxWidth: 1000, maxHeight: 1250 });
-      var photoUrl2 = place.photos[1].getUrl({ maxWidth: 1000, maxHeight: 1250 });
-      var photoUrl3 = place.photos[2].getUrl({ maxWidth: 1000, maxHeight: 1250 });
-      var photoUrl4 = place.photos[3].getUrl({ maxWidth: 1000, maxHeight: 1250 });
-      var photoUrl5 = place.photos[4].getUrl({ maxWidth: 1000, maxHeight: 1250 });
-      var photoUrl6 = place.photos[5].getUrl({ maxWidth: 1000, maxHeight: 1250 });
-      var photoUrl7 = place.photos[6].getUrl({ maxWidth: 1000, maxHeight: 1250 });
 
-      document.getElementById('place-photo-spot').src = photoUrl;
-      document.getElementById('place-photo-spot2').src = photoUrl2;
-      document.getElementById('place-photo-spot3').src = photoUrl3;
-      document.getElementById('place-photo-spot4').src = photoUrl4;
-      document.getElementById('place-photo-spot5').src = photoUrl5;
-      document.getElementById('place-photo-spot6').src = photoUrl6;
-      document.getElementById('place-photo-spot7').src = photoUrl7;
+        if (place.photos.length < 3) {
+          var photoUrl = place.photos[0].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+          var photoUrl2 = place.photos[1].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+          document.getElementById('place-photo-spot').src = photoUrl;
+          document.getElementById('place-photo-spot2').src = photoUrl2;
+          document.getElementById('place-photo-spot3').style.display = 'none';
+          document.getElementById('place-photo-spot4').style.display = 'none';
+          document.getElementById('place-photo-spot5').style.display = 'none';
+          document.getElementById('place-photo-spot6').style.display = 'none';
+          document.getElementById('place-photo-spot7').style.display = 'none';
+        }
+      else if (place.photos.length > 3) {
+        photoUrl = place.photos[0].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+        photoUrl2 = place.photos[1].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+        var photoUrl3 = place.photos[2].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+        var photoUrl4 = place.photos[3].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+        var photoUrl5 = place.photos[4].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+        var photoUrl6 = place.photos[5].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+        var photoUrl7 = place.photos[6].getUrl({ maxWidth: 1000, maxHeight: 1250 });
+        document.getElementById('place-photo-spot').src = photoUrl;
+        document.getElementById('place-photo-spot2').src = photoUrl2;
+        document.getElementById('place-photo-spot3').src = photoUrl3;
+        document.getElementById('place-photo-spot4').src = photoUrl4;
+        document.getElementById('place-photo-spot5').src = photoUrl5;
+        document.getElementById('place-photo-spot6').src = photoUrl6;
+        document.getElementById('place-photo-spot7').src = photoUrl7;
+      }
+
+
+      // console.log(place.photos);
+
+
+
       $('#place-info').show();
       $('#hideFancybox').show();
     }
@@ -411,13 +427,13 @@ function initAutocomplete() {
     }
 
     insertPlaceInfo(place);
-    
-    
+
+
     function insertPlaceInfo(place) {
       let markup = '<div>' +
-      '<h1><a href="' + place.url + '">' + place.name + '</a></h1>' + '<h2>' + place.vicinity + '</h2>'
-      + '<h3>'  + place.formatted_phone_number + '</h3>' + '<h3>' + place.website + '</h3></div>';
-    
+        '<h1><a href="' + place.url + '">' + place.name + '</a></h1>' + '<h2>' + place.vicinity + '</h2>' +
+        '<h3>' + place.formatted_phone_number + '</h3>' + '<h3>' + place.website + '</h3></div>';
+
 
       document.getElementById('place-info').innerHTML = markup;
     }
