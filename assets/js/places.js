@@ -86,7 +86,7 @@ function initAutocomplete() {
     $('#place-photo-spot5').hide();
     $('#place-photo-spot6').hide();
     $('#place-photo-spot7').hide();
-    $('#hideFancybox').hide();
+    $('#hidePhotobox').hide();
     map.setZoom(clearResult.zoom);
     map.setCenter(clearResult.center);
     place = "";
@@ -117,7 +117,7 @@ function initAutocomplete() {
   $('#place-photo-spot7').hide();
   $('#listing').hide();
   $('#hr').hide();
-  $('#hideFancybox').hide();
+  $('#hidePhotobox').hide();
 
 
   // A call to the autocomplete with only cities as a type to select
@@ -405,14 +405,8 @@ function initAutocomplete() {
         document.getElementById('place-photo-spot6').src = photoUrl6;
         document.getElementById('place-photo-spot7').src = photoUrl7;
       }
-
-
-      // console.log(place.photos);
-
-
-
       $('#place-info').show();
-      $('#hideFancybox').show();
+      $('#hidePhotobox').show();
     }
     else {
       document.getElementById('place-photo-spot').style.display = 'none';
@@ -423,7 +417,7 @@ function initAutocomplete() {
       document.getElementById('place-photo-spot6').style.display = 'none';
       document.getElementById('place-photo-spot7').style.display = 'none';
       document.getElementById('place-info').style.display = 'none';
-      document.getElementById('hideFancybox').style.display = 'none';
+      document.getElementById('hidePhotobox').style.display = 'none';
     }
 
     insertPlaceInfo(place);
@@ -432,7 +426,7 @@ function initAutocomplete() {
     function insertPlaceInfo(place) {
       let markup = '<div>' +
         '<h1><a href="' + place.url + '">' + place.name + '</a></h1>' + '<h2>' + place.vicinity + '</h2>' +
-        '<h3>' + place.formatted_phone_number + '</h3>' + '<h3>' + place.website + '</h3></div>';
+        '<h3>' + place.formatted_phone_number + '</h3>' + '<h5 class="smallMobile">' + place.website + '</h5></div>';
 
 
       document.getElementById('place-info').innerHTML = markup;

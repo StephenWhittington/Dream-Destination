@@ -165,7 +165,7 @@ table {
     width: inherit;
 }
 
-/* ------------------------------- Image response styling -------------------------------- */
+/* ------------------------------- Image response styling with place-info -------------------------------- */
 
 .result-image {
     width: 100%;
@@ -176,10 +176,12 @@ table {
     padding: 10px;
 }
 
-#namePlace a {
+#place-info {
     font-family: Roboto;
     color: black;
+    width: 100%;
 }
+
 
 /* -----------------------InfoWidow styling for place information ------------------- */
 
@@ -238,6 +240,9 @@ p {
 
 @media (max-width: 576px) {
     .dont-show {
+        display: none;
+    }
+    .smallMobile {
         display: none;
     }
 }

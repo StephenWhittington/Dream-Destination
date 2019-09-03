@@ -8,7 +8,6 @@
     <title>Dream Destination</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 </head>
 
@@ -153,7 +152,7 @@
             <br>
             <div class="row">
                 <div class="col-12">
-                    <div id="place-info"></div>
+                    <div id="place-info" class="text-center"></div>
                     <img id="place-photo-spot" src="" class="result-image"></img>
                 </div>
             </div>
@@ -162,34 +161,34 @@
         <br>
 
         <!-- Section with extra pictures of places with fancybox -->
-        <section class="container" id="hideFancybox">
+        <section class="container" id="hidePhotobox">
             <h1 class="header text-center">See More Pictures Below</h1>
             <div class="row photoStyle">
                 <div class="col-xs-12 col-sm-12 col-md-4">
-                    <a data-fancybox="gallery" href="">
-                    <img id="place-photo-spot2" src="photoUrl2.getUrl" class="result-image" alt="Photo of Place"></a>
+
+                    <img id="place-photo-spot2" src="" class="result-image" alt="Photo of Place">
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-4">
-                    <a data-fancybox="gallery" href="">
-                    <img id="place-photo-spot3" src="photoUrl3" class="result-image" alt="Photo of Place"></a>
+
+                    <img id="place-photo-spot3" src="" class="result-image" alt="Photo of Place">
                 </div>
                 <div class="col-xs-12 col-md-4">
-                    <a data-fancybox="gallery" href="">
-                    <img id="place-photo-spot4" src="photoUrl4" class="result-image" alt="Photo of Place"></a>
+
+                    <img id="place-photo-spot4" src="" class="result-image" alt="Photo of Place">
                 </div>
             </div>
             <div class="row photoStyle">
                 <div class="col-xs-12 col-sm-12 col-md-4">
-                    <a data-fancybox="gallery" href="">
-                    <img id="place-photo-spot5" src="photoUrl5" class="result-image" alt="Photo of Place"></a>
+
+                    <img id="place-photo-spot5" src="" class="result-image" alt="Photo of Place">
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-4">
-                    <a data-fancybox="gallery" href="">
-                    <img id="place-photo-spot6" src="photoUrl6" class="result-image" alt="Photo of Place"></a>
+
+                    <img id="place-photo-spot6" src="" class="result-image" alt="Photo of Place">
                 </div>
                 <div class="col-xs-12 col-md-4">
-                    <a data-fancybox="gallery" href="">
-                    <img id="place-photo-spot7" src="photoUrl7" class="result-image" alt="Photo of Place"></a>
+
+                    <img id="place-photo-spot7" src="" class="result-image" alt="Photo of Place">
                 </div>
             </div>
         </section>
@@ -215,7 +214,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="assets/js/places.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCToTw2ZDwtlRnWtRgG6Cv6kYVGeyyVWvU&callback=initMap&libraries=places&callback=initAutocomplete"></script>
-    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
 </body>
 
 </html>

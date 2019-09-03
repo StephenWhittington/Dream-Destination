@@ -109,10 +109,6 @@ marker results.
     
     * The website uses the Google Maps API and the Google Places API to allow users to interact and search using a map.
 
-* [Fancybox3](https://fancyapps.com/fancybox/3/)
-    
-    * Recommended by my Mentor, The webpage uses fancybox to help images stand out from when the user selects a place from the map.
-
 # Testing 
 
 ### User Story Tests Completed
@@ -166,9 +162,5 @@ webpage application works on mobile,tablet and desktop screen sizes.
 
 ## Bugs And Problems
 
-I have discovered a few problems with my page, I am using fancybox and i cannot target the photos from the google places api
-so when the user clicks on the pictures after they are scrolled through they disappear, and then when you select another place
-it only shows the first picture with the place name link.
 
-    * I am curently trying to find a way to fix this bug/problem.
     
