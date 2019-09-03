@@ -167,7 +167,7 @@ the place-info ID shows undefined if there is no address,phone number or website
 
     * This minor issue could be fixed with an if statement to not show the results if they are not available.
     
-Another bug i noticed was `"Uncaught (in promise) TypeError: Cannot read property 'location' of undefined"`` in my javascript.
+Another bug i noticed was `Uncaught (in promise) TypeError: Cannot read property 'location' of undefined` in my javascript.
 When i try to change this the map appears to be in a different place when the page first loads from what i have set it too, but if
 you make a search and then reset the map is back to my default setting.
 
@@ -178,9 +178,10 @@ you make a search and then reset the map is back to my default setting.
 I ran all my code through both a CSS/HTML5 validator i had a few errors but my page seems to work regardless of them. 
 I understand that these errors can be fixed, But do not make my project unviewable.
 
-* **index.html** -  I ran this page through [](https://validator.w3.org/) and encounterd 9 errors and 3 warnings.
-* **style.css** -  I ran my code through [](https://jigsaw.w3.org/css-validator/) and had 0 errors.
-
+* **index.html** -  I ran this page through [https://validator.w3.org/](https://validator.w3.org/) and encounterd 9 errors and 3 warnings.
+* **style.css** -  I ran my code through [https://jigsaw.w3.org/css-validator/](https://jigsaw.w3.org/css-validator/) and had 0 errors.
+* **jshint.com** - I ran my javascript code through this test and got ten warnings and three undefined variables i can confirm
+                   that my code passed with no major issues.
     
 
 
