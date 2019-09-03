@@ -177,11 +177,15 @@ table {
 }
 
 #place-info {
-    font-family: Roboto;
+    font-family: "Roboto", sans-serif;;
     color: black;
     width: 100%;
 }
 
+#place-info a {
+    color: black;
+   
+}
 
 /* -----------------------InfoWidow styling for place information ------------------- */
 

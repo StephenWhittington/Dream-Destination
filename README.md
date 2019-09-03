@@ -162,5 +162,26 @@ webpage application works on mobile,tablet and desktop screen sizes.
 
 ## Bugs And Problems
 
+There are few noticeable minor bugs and problems that i have found with my project when the user selects a place from the results
+the place-info ID shows undefined if there is no address,phone number or website.
+
+    * This minor issue could be fixed with an if statement to not show the results if they are not available.
+    
+Another bug i noticed was `"Uncaught (in promise) TypeError: Cannot read property 'location' of undefined"`` in my javascript.
+When i try to change this the map appears to be in a different place when the page first loads from what i have set it too, but if
+you make a search and then reset the map is back to my default setting.
+
+    * Although trying to figure out a fix for this bug i haven't been able to do so far, but the map works with the error.
+    
+## Testing my code via validation
+
+I ran all my code through both a CSS/HTML5 validator i had a few errors but my page seems to work regardless of them. 
+I understand that these errors can be fixed, But do not make my project unviewable.
+
+* **index.html** -  I ran this page through [](https://validator.w3.org/) and encounterd 9 errors and 3 warnings.
+* **style.css** -  I ran my code through [](https://jigsaw.w3.org/css-validator/) and had 0 errors.
+
+    
+
 
     

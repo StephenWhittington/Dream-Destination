@@ -425,8 +425,8 @@ function initAutocomplete() {
 
     function insertPlaceInfo(place) {
       let markup = '<div>' +
-        '<h1><a href="' + place.url + '">' + place.name + '</a></h1>' + '<h2>' + place.vicinity + '</h2>' +
-        '<h3>' + place.formatted_phone_number + '</h3>' + '<h5 class="smallMobile">' + place.website + '</h5></div>';
+        '<h1>Name: <a href="' + place.url + '">' + place.name + '</a></h1>' + '<h2>Address: ' + place.vicinity + '</h2>' +
+        '<h3>Phone Number: ' + place.formatted_phone_number + '</h3>' + '<h5 class="smallMobile">' + place.website + '</h5></div>';
 
 
       document.getElementById('place-info').innerHTML = markup;
