@@ -313,10 +313,9 @@ function initAutocomplete() {
       });
   }
 
-  // function built to hold all of the infoWindow content shown
+  // function built to hold all of the infoWindow content shown, and pictures with place information
 
   function buildIWContent(place) {
-    console.log(place);
     $('#place-photo-spot').show();
     $('#place-photo-spot2').show();
     $('#place-photo-spot3').show();

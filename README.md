@@ -64,13 +64,15 @@ accommodation/bars/restaurants or tourist attractions.
 * **Reset Button** - Allows the user to reset the current information entered in the autocomplete search bar and the catagory option 
 dropdown by clicking on it, The button changes everything back to defualt including the map zoom/center position.
 
+* **Make Another Search Button** - When the uses clicks this button it takes them back to the top of the page to change their search.
+
 * **Infowindow Map Result** - When clicked the infowindow shows the address, phone number, rating and website by selecting one of the placed
 marker results.
 
 * **Result List** - Allows the user to click one of the results which then scrolls up to find the infowindow opened.
 
 * **Pictures Of Places** - When the user has selected a result either from the map markers or result list one picture is displayed wth the place name,address,phone number
-and website.Then underneath 6 more pictures of the place are shown.
+and website. Then underneath 6 more pictures of the place are shown.
 
 ## Features Left To Implement 
 
@@ -119,7 +121,7 @@ and website.Then underneath 6 more pictures of the place are shown.
 1. **Autocomplete Search**:
     1.  Type in information of a city.
     2.  A dropdown list appears with matching results to information entered.
-    3.  Confirmed that the user can select a result from the list.
+    3.  Confirmed that the user can select a result from the list and it scrolls to the map.
 
 1. **Select A Option From The Category Dropdown**:
     1. Select a different option from the list.
@@ -148,10 +150,11 @@ and website.Then underneath 6 more pictures of the place are shown.
     2. When a result is clicked on the list it scrolls up to the map and is displayed.
     3. Confirmed that when the user selects a result from the list it scrolls up to the map and information is displayed.
 
-1. **Pictures Displayed**:
+1. **Pictures/Info Displayed**:
     1. When a marker is selected from the map or a result is clicked on from the result table.
     2. Pictures are displayed under the map of the selected marker/result.
-    3. Confirmed that when the user clicks on a marker on the map or the result table pictures are shown under the map.
+    3. Confirmed that when the user clicks on a marker on the map or the result table pictures are shown under the map with
+    place information.
 
 
 ### How it works on different browsers and screen sizes
