@@ -51,6 +51,9 @@ of the place they have selected under the map a maximum of three pictures are sh
 
 * **Go Button** - Allows desktop users by clicking to scroll to the map to start their search.
 
+* **Auto Scroll Autocomplete** - After the user selects a city from the autocomplete search bar the page scrolls down to 
+the results with tourist attractions selected.
+
 * **Autocomplete Search Bar** - Allows the user to search for specific cities and locations quicker, as suggestions
 appear in the dropdown based on the information they have entered. When the user has typed enough into the search bar the city or location
 they are looking for should appear.
@@ -66,8 +69,8 @@ marker results.
 
 * **Result List** - Allows the user to click one of the results which then scrolls up to find the infowindow opened.
 
-* **Pictures Of Places** - When the user has selected a result either from the map markers or result list one picture is displayed wth the place
-* name and link, then underneath 6 more pictures of the place are shown with fancybox to scroll through them.
+* **Pictures Of Places** - When the user has selected a result either from the map markers or result list one picture is displayed wth the place name,address,phone number
+and website.Then underneath 6 more pictures of the place are shown.
 
 ## Features Left To Implement 
 
@@ -207,10 +210,30 @@ The live version of my site can be found here:
    * **Github Pages**:[https://stephenwhittington.github.io/Dream-Destination/](https://stephenwhittington.github.io/Dream-Destination/) 
     
 
-Developers can also download and work on my project by selecting the clone or dowload option from my repository, You can then
+Developers can also download and work on my project by selecting the clone with **HTTPS** or **dowload ZIP** option from my repository, You can then
 use git clone and then link my project to start making any changes to the site.
 
 I can confirm that there are no differences from the deployed and the development version.
 
 # Credits
-    
+ 
+ **Content**
+ 
+ In this project i used a lot of google maps api guide code and altered it to my own, Along with bootstrap
+ example being the carousel. For CSS styling i spent time in the dev tools trying out different things that would suit
+ my project and then added them into my styling after. A lot of research into javascript was spent on this project and
+ any problems i had i went to slack, tutor support or search for answers myself.
+ 
+ **Media**
+ 
+ * The none google place api images used in this project inside the caraousel and background used in my site, are royalty free
+ and only for educational purposes only and can be found [https://pixabay.com/](https://pixabay.com/).
+
+ **Acknowledgements**
+
+I received inspiration from the google place api [https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-hotelsearch](Places-autocomplete-hotelsearch)
+which i then added too with my own ideas, and also looking at other search engine sites such as trip advisor and more.
+The further i got with my project the more inspiration i gained with finding the google places api fun and engaging.
+
+A huge thanks to my mentor Ignatius Ukwuoma for his time, suggestions, and constructive feedback for this project!
+
