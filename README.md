@@ -172,17 +172,45 @@ When i try to change this the map appears to be in a different place when the pa
 you make a search and then reset the map is back to my default setting.
 
     * Although trying to figure out a fix for this bug i haven't been able to do so far, but the map works with the error.
+
+## Compatibility
+
+To make sure users have a broad range of accessibility, i have tested my project on 3 major browsers in both desktop and mobile size.
+
+* Chrome
+* Mozilla Firefox
+* Internet Explorer
+
     
 ## Testing my code via validation
 
-I ran all my code through both a CSS/HTML5 validator i had a few errors but my page seems to work regardless of them. 
+I ran all my code through both a CSS/HTML5 and JShint validator i had a few errors but my page works regardless of them. 
 I understand that these errors can be fixed, But do not make my project unviewable.
 
 * **index.html** -  I ran this page through [https://validator.w3.org/](https://validator.w3.org/) and encounterd 9 errors and 3 warnings.
 * **style.css** -  I ran my code through [https://jigsaw.w3.org/css-validator/](https://jigsaw.w3.org/css-validator/) and had 0 errors.
-* **jshint.com** - I ran my javascript code through this test and got ten warnings and three undefined variables i can confirm
+* **JShint.com** - I ran my javascript code through this test [https://jshint.com/](https://jshint.com/) and got ten warnings and three undefined variables i can confirm
                    that my code passed with no major issues.
+
+
+# Deployment
+
+My deployment and source code was all done via GitHub, You can find my repository here:
+    
+   * **Repository**:[https://github.com/StephenWhittington/Dream-Destination](https://github.com/StephenWhittington/Dream-Destination)
+
+I have uploaded the source code using the master branch to **GitHub Pages**, to do this i went to settings in my repository
+and scrolled down to the GitHub Pages section where i changed the option to master branch.
+
+The live version of my site can be found here:
+    
+   * **Github Pages**:[https://stephenwhittington.github.io/Dream-Destination/](https://stephenwhittington.github.io/Dream-Destination/) 
     
 
+Developers can also download and work on my project by selecting the clone or dowload option from my repository, You can then
+use git clone and then link my project to start making any changes to the site.
 
+I can confirm that there are no differences from the deployed and the development version.
+
+# Credits
     
