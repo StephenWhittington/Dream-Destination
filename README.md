@@ -64,7 +64,7 @@ accommodation/bars/restaurants or tourist attractions.
 * **Reset Button** - Allows the user to reset the current information entered in the autocomplete search bar and the catagory option 
 dropdown by clicking on it, The button changes everything back to defualt including the map zoom/center position.
 
-* **Make Another Search Button** - When the uses clicks this button it takes them back to the top of the page to change their search.
+* **Make Another Search Button** - When the user clicks this button it takes them back to the top of the page to change their search.
 
 * **Infowindow Map Result** - When clicked the infowindow shows the address, phone number, rating and website by selecting one of the placed
 marker results.
@@ -225,7 +225,7 @@ I can confirm that there are no differences from the deployed and the developmen
  In this project i used a lot of google maps api guide code and altered it to my own, Along with bootstrap
  example being the carousel. For CSS styling i spent time in the dev tools trying out different things that would suit
  my project and then added them into my styling after. A lot of research into javascript was spent on this project and
- any problems i had i went to slack, tutor support or search for answers myself.
+ any problems i had i went to slack, tutor support or searched for answers myself.
  
  **Media**
  
@@ -234,8 +234,8 @@ I can confirm that there are no differences from the deployed and the developmen
 
  **Acknowledgements**
 
-I received inspiration from the google place api [https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-hotelsearch](Places-autocomplete-hotelsearch)
-which i then added too with my own ideas, and also looking at other search engine sites such as trip advisor and more.
+I received inspiration from the google place api [Place Autocomplete Hotel Search](https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-hotelsearch)
+which i then added to with my own ideas, and also looking at other search engine sites such as trip advisor and more.
 The further i got with my project the more inspiration i gained with finding the google places api fun and engaging.
 
 A huge thanks to my mentor Ignatius Ukwuoma for his time, suggestions, and constructive feedback for this project!

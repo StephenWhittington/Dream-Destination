@@ -92,13 +92,15 @@ function initAutocomplete() {
     place = "";
   };
 
-  // A function that calls the start your search button and scrolls to the map
+  // An onclick function that calls the go button and scrolls to the map
 
   document.getElementById('scrollToMap').onclick = function() {
     var scroll = document.getElementById("map-Scroll");
     scroll.scrollIntoView();
   };
 
+  // An onclick function that calls the make another search button and scrolls back to search bar
+  
   document.getElementById('scrollToMapSearch').onclick = function() {
     var scrollSearch = document.getElementById("backToSearch");
     scrollSearch.scrollIntoView();
@@ -134,7 +136,7 @@ function initAutocomplete() {
   autocomplete.addListener('place_changed', onPlaceChanged);
   document.getElementById('category').addEventListener('change', onPlaceChanged);
 
-  // Creates an infowidow that pops up
+  // Creates an infowidow that pops up when the user selects a marker
 
   infoWindow = new google.maps.InfoWindow({
     content: document.getElementById('info-content')
@@ -339,6 +341,7 @@ function initAutocomplete() {
       document.getElementById('iw-phone-row').style.display = 'none';
     }
 
+
     if (place.rating) {
       var ratingHtml = '';
       for (var i = 0; i < 5; i++) {
@@ -355,6 +358,7 @@ function initAutocomplete() {
     else {
       document.getElementById('iw-rating-row').style.display = 'none';
     }
+
 
     // The regexp isolates the first part of the URL (domain plus subdomain)
     // to give a short URL for displaying in the info window.
@@ -373,6 +377,7 @@ function initAutocomplete() {
     }
 
 
+    // if statement that calls on the google photos array
 
     if (place.photos) {
       for (let i = 0; i < place.photos.length; i++)
@@ -419,8 +424,10 @@ function initAutocomplete() {
       document.getElementById('hidePhotobox').style.display = 'none';
     }
 
-    insertPlaceInfo(place);
 
+    // Function that adds information to the main picture from the search
+
+    insertPlaceInfo(place);
 
     function insertPlaceInfo(place) {
       let markup = '<div>' +
@@ -440,5 +447,4 @@ function initAutocomplete() {
     bounds.extend(places.geometry.location);
   }
   map.fitBounds(bounds);
-
 }
